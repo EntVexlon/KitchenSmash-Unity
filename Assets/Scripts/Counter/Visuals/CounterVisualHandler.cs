@@ -38,6 +38,7 @@ public class CounterVisualHandler : MonoBehaviour
     { CounterModelAnim.SetTrigger("OpenClose"); }
 
     ///<summary>
+    /// Line 38:
     /// Yeah I Also Wished to Not use Strings i Just Hate But theirs is no
     /// Othey Way So..
     ///</summary>

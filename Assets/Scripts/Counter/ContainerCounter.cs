@@ -13,7 +13,7 @@ public class ContainerCounter : MonoBehaviour , IinteractCounter
 
 
     public void TryPlaceItem(GameObject Item) {}
-    public void CutCounterItem() {}
+    public void InteractAction() {}
 
 
     public GameObject TryPickUpItem(Player ph)

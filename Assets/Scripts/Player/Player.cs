@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     public void TryInteractExecute(IinteractCounter Counter)
     {
         if (Counter.CounterHaveItem)
-        Counter.CutCounterItem();
+        Counter.InteractAction();
         
     }
 }

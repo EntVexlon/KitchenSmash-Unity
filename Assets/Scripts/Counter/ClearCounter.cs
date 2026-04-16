@@ -9,7 +9,7 @@ public class ClearCounter : MonoBehaviour , IinteractCounter
     public GameObject CurrentCounterItem { get; set; }
 
 
-    public void CutCounterItem() {}
+    public void InteractAction() {}
 
     //public void TryPlaceItem(GameObject GetItem)
     //{

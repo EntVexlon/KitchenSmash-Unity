@@ -41,7 +41,7 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
         return @object;
     }
 
-    public void CutCounterItem()
+    public void InteractAction()
     {
         if (!CounterHaveItem) return;
             foreach (_ItemToSliceItem item in IsSlicebelItem)

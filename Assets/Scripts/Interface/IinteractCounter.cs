@@ -8,7 +8,7 @@ public interface IinteractCounter
     bool CounterHaveItem { get; set; }
     GameObject CurrentCounterItem { get; set; }
 
-    void CutCounterItem();
+    void InteractAction();
     // I Should be do in Better way uhh any way..
 
 }

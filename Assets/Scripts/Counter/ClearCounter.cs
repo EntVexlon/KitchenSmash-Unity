@@ -1,9 +1,39 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : MonoBehaviour , IinteractCounter
 {
-   public void Interact()
+    [SerializeField] public Transform CounterTopPoint;
+    [SerializeField] public Transform CounterTop;
+    public bool CounterHaveItem { get; set; } = false;
+    public GameObject CurrentCounterItem { get; set; }
+
+
+    public void CutCounterItem() {}
+
+    //public void TryPlaceItem(GameObject GetItem)
+    //{
+    //    if (CounterHaveItem) return;
+    //    CurrentCounterItem = GetItem;
+    //    CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
+    //    CounterHaveItem = true;
+    //}
+
+    public void TryPlaceItem(GameObject GetItem)
     {
-        Debug.Log("Interacted to Clean Counter");
+        if (CounterHaveItem) return;
+        CurrentCounterItem = GetItem;
+        CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
+        CounterHaveItem = true;
     }
+    public GameObject TryPickUpItem(Player ph) {
+        if(!CounterHaveItem) return null;
+        CurrentCounterItem?.GetComponent<KitchenObject>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        CounterHaveItem = false;
+        GameObject @object = CurrentCounterItem;
+        CurrentCounterItem = null;
+        return @object;
+    }
+
+
 }

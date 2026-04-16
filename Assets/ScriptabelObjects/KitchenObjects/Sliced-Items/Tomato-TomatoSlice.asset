@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819c2af55529aac4b90aed25d58af261, type: 3}
+  m_Name: Tomato-TomatoSlice
+  m_EditorClassIdentifier: Assembly-CSharp::_SlicedObhect
+  input: {fileID: 8741352458104982031, guid: 083e7b496ecc8c74ab6978a48390fd2c, type: 3}
+  output: {fileID: 3812876574508226177, guid: 6ac51c103740f284ab160d0e9d844880, type: 3}
+  RequiredSliceCount: 3
+  InputObjectName: Tomato
+  OutputObjectName: Tomato Sliced

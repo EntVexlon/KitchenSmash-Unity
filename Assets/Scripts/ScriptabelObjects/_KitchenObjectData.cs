@@ -1,6 +1,5 @@
-using Unity.VisualScripting;
 using UnityEngine;
-[CreateAssetMenuAttribute(fileName = "KitchenObject", menuName = "KitchenObject/Vegetable")]
+[CreateAssetMenu(menuName = "KitchenObject/Ingredient" , order = 1)]
 public class _KitchenObjectData : ScriptableObject{
     public GameObject Prefab;
     public Sprite Sprite;

@@ -14,7 +14,6 @@ public class InteractionHandler : MonoBehaviour
     private CounterVisualHandler CounterIndicate;
     private bool IsHitCounter;
     private float InteractObjectDistance = 2f;
-    //private Transform TransformOfCounterIndicationObject;
 
     private void Start()
     {

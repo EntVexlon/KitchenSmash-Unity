@@ -11,15 +11,7 @@ public class ClearCounter : MonoBehaviour , IinteractCounter
 
     public void InteractAction() {}
 
-    //public void TryPlaceItem(GameObject GetItem)
-    //{
-    //    if (CounterHaveItem) return;
-    //    CurrentCounterItem = GetItem;
-    //    CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
-    //    CounterHaveItem = true;
-    //}
-
-    public void TryPlaceItem(GameObject GetItem)
+    public void TryDropItem(GameObject GetItem)
     {
         if (CounterHaveItem) return;
         CurrentCounterItem = GetItem;

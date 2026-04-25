@@ -7,16 +7,16 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
     [SerializeField] private ProgressBarUI Progress_BarUI;
     [SerializeField] public Transform CounterTopPoint;
     [SerializeField] public Transform CounterTop;
-    [SerializeField] private _ItemToSliceItem[] IsSlicebelItem;
+    [SerializeField] private _CutItem[] IsSlicebelItem;
     [HideInInspector] public event Action OnItemCut;
     private int SliceCount;
     public bool CounterHaveItem { get; set; } = false;
     public GameObject CurrentCounterItem { get; set; }
 
-    public void TryPlaceItem(GameObject GetItem)
+    public void TryDropItem(GameObject GetItem)
     {
         if (CounterHaveItem) return;
-        foreach (_ItemToSliceItem item in IsSlicebelItem)
+        foreach (_CutItem item in IsSlicebelItem)
         {
             CurrentCounterItem = GetItem;
             if (CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName == item.InputObjectName)
@@ -44,7 +44,7 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
     public void InteractAction()
     {
         if (!CounterHaveItem) return;
-            foreach (_ItemToSliceItem item in IsSlicebelItem)
+            foreach (_CutItem item in IsSlicebelItem)
             {
             if (CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName == item.InputObjectName)
             {

@@ -14,10 +14,11 @@ public class Player : MonoBehaviour
         {
             //Place
             if (Counter is ContainerCounter || Counter.CounterHaveItem) return;
-            Counter.TryPlaceItem(CurrentItem);
+            Counter.TryDropItem(CurrentItem);
             if(!Counter.CounterHaveItem) return;
 
-            /// This behavior is funny. I originally wanted to allow placing only sliceable items 
+            /// This behavior is funny. 
+            /// I originally wanted to allow placing only sliceable items 
             /// like vegetables and restrict placing items like burgers, meat, etc. 
             /// But now an extra condition has appeared sliced items also cannot be placed, 
             /// which is logically correct, but not what I intended.

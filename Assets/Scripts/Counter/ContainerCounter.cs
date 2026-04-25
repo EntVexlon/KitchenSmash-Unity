@@ -12,7 +12,7 @@ public class ContainerCounter : MonoBehaviour , IinteractCounter
     public GameObject CurrentCounterItem{ get; set; }
 
 
-    public void TryPlaceItem(GameObject Item) {}
+    public void TryDropItem(GameObject Item) {}
     public void InteractAction() {}
 
 

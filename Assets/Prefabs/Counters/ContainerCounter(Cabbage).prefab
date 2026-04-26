@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7366483395719912707, guid: d9ff96b47e21a9846b97522e17f9f9ea, type: 3}
+      propertyPath: Ingredient
+      value: 
+      objectReference: {fileID: 11400000, guid: 4369216ab7668604e9936a6db2e930b5, type: 2}
+    - target: {fileID: -7366483395719912707, guid: d9ff96b47e21a9846b97522e17f9f9ea, type: 3}
       propertyPath: kitchenObjectData
       value: 
       objectReference: {fileID: 11400000, guid: 4369216ab7668604e9936a6db2e930b5, type: 2}

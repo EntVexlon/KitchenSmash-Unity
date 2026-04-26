@@ -22,7 +22,7 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
             if (CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName == item.InputObjectName)
             {
                 Progress_BarUI.SetProgressbar(true);
-                Progress_BarUI.ProgressBar(SliceCount, item.RequiredSliceCount);
+                Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
                 CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
                 CounterHaveItem = true;
             }
@@ -50,7 +50,7 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
             {
                 SliceCount++;
                 Progress_BarUI.SetProgressbar(true);
-                Progress_BarUI.ProgressBar(SliceCount, item.RequiredSliceCount);
+                Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
                 OnItemCut?.Invoke();
                 if (SliceCount == item.RequiredSliceCount)
                 {

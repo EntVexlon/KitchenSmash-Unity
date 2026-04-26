@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class ContainerCounter : MonoBehaviour , IinteractCounter
 {
-    [SerializeField] private _KitchenObjectData kitchenObjectData;
+    [SerializeField] private _Ingredient Ingredient;
     private KitchenObject Kitchen_Object;
     private GameObject IngredientObject;
     public event Action OnTryPickUpIngredient;
@@ -18,10 +18,10 @@ public class ContainerCounter : MonoBehaviour , IinteractCounter
 
     public GameObject TryPickUpItem(Player ph)
     {
-        IngredientObject = Instantiate(kitchenObjectData.Prefab);
+        IngredientObject = Instantiate(Ingredient.Prefab);
 
         Kitchen_Object = IngredientObject.GetComponent<KitchenObject>();
-        Kitchen_Object.CurrentItemName = kitchenObjectData.ObjectName;
+        Kitchen_Object.CurrentItemName = Ingredient.ObjectName;
         Kitchen_Object.SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
         OnTryPickUpIngredient?.Invoke();
 

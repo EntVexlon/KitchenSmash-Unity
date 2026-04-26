@@ -15,5 +15,5 @@ MonoBehaviour:
   input: {fileID: 8741352458104982031, guid: f83198aeeed2f3e4895fb47087ce68b0, type: 3}
   output: {fileID: 3812876574508226177, guid: e3edf2f12267e4144ac674786900eb24, type: 3}
   RequiredSliceCount: 3
-  InputObjectName: CheesBlock
-  OutputObjectName: CheesSlice
+  InputObjectName: CheeseBlock
+  OutputObjectName: CheeseSlice

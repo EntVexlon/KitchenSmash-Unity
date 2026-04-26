@@ -57,7 +57,7 @@ public class InteractionHandler : MonoBehaviour
     public void InteractExecute(object sender, EventArgs e)
     {
         if (IsHitCounter)
-            if (Hit.collider.TryGetComponent(out IinteractCounter counter) && counter is CuttingCounter)
+            if (Hit.collider.TryGetComponent(out IinteractCounter counter))
                 PlayerHandler.TryInteractExecute(counter);
     }
 }

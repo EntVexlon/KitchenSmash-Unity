@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MeatPatty-To-CookedMeatPatty
   m_EditorClassIdentifier: Assembly-CSharp::_CookItem
   InputObjectName: MeatPatty
-  RequiredCookTime: 10
-  CookedObject: {fileID: 0}
-  BurrnedObject: {fileID: 0}
+  RequiredCookTime: 6
+  BurnTime: 4
+  CookedObject: {fileID: 3812876574508226177, guid: 2090df9675c8dfd4883720a417b2fa58, type: 3}
+  BurrnedObject: {fileID: 3812876574508226177, guid: 6481692ef131b174f868819990d99fc1, type: 3}

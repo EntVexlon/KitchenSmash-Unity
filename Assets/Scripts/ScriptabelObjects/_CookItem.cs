@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class _CookItem : ScriptableObject
 {
-        public string InputObjectName;
-        public float RequiredCookTime;
-        public GameObject CookedObject;
-        public GameObject BurrnedObject;
-    
+    public string InputObjectName;
+    public float RequiredCookTime;
+    public float BurnTime;
+    public GameObject CookedObject;
+    public GameObject BurrnedObject;
 }

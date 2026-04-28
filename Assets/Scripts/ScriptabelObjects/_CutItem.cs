@@ -5,7 +5,7 @@ using UnityEngine;
 public class _CutItem : ScriptableObject
 {
     public GameObject input;
-    public GameObject output;
+    public GameObject output;   
     public float RequiredSliceCount;
     public string InputObjectName;
     public string OutputObjectName;

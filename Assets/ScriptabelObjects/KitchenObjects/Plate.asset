@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a614caced04c0b49936f8ba4309fd41, type: 3}
   m_Name: Plate
   m_EditorClassIdentifier: Assembly-CSharp::_KitchenObject
+  Prefab: {fileID: 3812876574508226177, guid: 0c0ab62786364904fb6ec380f35469a0, type: 3}
+  ObjectName: Plate

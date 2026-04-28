@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3812876574508226176}
   - component: {fileID: -9121352281673763071}
+  - component: {fileID: 53757075413435502}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -46,6 +47,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   CurrentItemName: Plate
+--- !u!114 &53757075413435502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812876574508226177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f14d23f64c7a4e48ac0a057a1ea757e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KitchenObject_Plate
 --- !u!1001 &3098205093739279250
 PrefabInstance:
   m_ObjectHideFlags: 0

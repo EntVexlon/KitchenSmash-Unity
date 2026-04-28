@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] public Transform ItemHolder;
     [HideInInspector] public GameObject CurrentItem;
     private bool IsHoldItem =  false;
-    public void TryInteractCounter(IinteractCounter Counter)
+    public void TryInteractCounter(ICounter Counter)
     {
         if (IsHoldItem && CurrentItem != null)
         {
@@ -14,12 +14,6 @@ public class Player : MonoBehaviour
             if (Counter is ContainerCounter || Counter.CounterHaveItem) return;
             Counter.TryDropItem(CurrentItem);
             if(!Counter.CounterHaveItem) return;
-
-            /// This behavior is funny. 
-            /// I originally wanted to allow placing only sliceable items 
-            /// like vegetables and restrict placing items like burgers, meat, etc. 
-            /// But now an extra condition has appeared sliced items also cannot be placed, 
-            /// which is logically correct, but not what I intended.
 
             CurrentItem = null;
             IsHoldItem = false;
@@ -32,7 +26,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TryInteractExecute(IinteractCounter Counter)
+    public void TryInteractExecute(ICounter Counter)
     {
         if (Counter.CounterHaveItem)
         Counter.InteractAction();

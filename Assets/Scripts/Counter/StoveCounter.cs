@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class StoveCounter : MonoBehaviour ,IinteractCounter
+public class StoveCounter : BaseCounter
 {
     [SerializeField] public Transform CounterTopPoint;
     [SerializeField] public Transform CounterTop;
@@ -10,29 +10,27 @@ public class StoveCounter : MonoBehaviour ,IinteractCounter
     [SerializeField] private _CookItem[] CookItmes;
     private float CookTime = 0;
     private bool IsCooking = false;
-    public bool CounterHaveItem { get; set; } = false;
-    public GameObject CurrentCounterItem { get; set; }
-    public void TryDropItem(GameObject Item) {
+    public override void TryDropItem(GameObject Item) {
         if (CounterHaveItem) return;
         foreach (_CookItem item in CookItmes)
         {
             CurrentCounterItem = Item;
-            if (CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName == item.InputObjectName)
+            if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
             {
                 ProgressBar.SetProgressbar(true);
                 ProgressBar.FillBar(CookTime, CookTime > item.RequiredCookTime ? item.RequiredCookTime : item.BurnTime);
-                CurrentCounterItem.GetComponent<KitchenObject>().SetParent(
+                CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(
                     CounterTop, CounterTopPoint.position);
                 CounterHaveItem = true;
             }
         }
     }
-    public GameObject TryPickUpItem(Player ph){
+    public override GameObject TryPickUpItem(Player ph){
         if (!CounterHaveItem) return null;
         ProgressBar.SetProgressbar(false);
         EffectHandler.SetVisual(false);
         StopAllCoroutines();
-        CurrentCounterItem?.GetComponent<KitchenObject>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
         CounterHaveItem = false;
         IsCooking = false;
         GameObject @object = CurrentCounterItem;
@@ -43,11 +41,11 @@ public class StoveCounter : MonoBehaviour ,IinteractCounter
     // I know so much bools but 
     // maybe in future i will refactor it maybe :) 
 
-    public void InteractAction() {
+    public override void InteractAction() {
     if(!CounterHaveItem || IsCooking) return;
         foreach (_CookItem item in CookItmes)
         {
-            if (item.InputObjectName == CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName)
+            if (item.InputObjectName == CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName)
                 StartCoroutine(AssignCookMethod(item));
         }
     }
@@ -73,7 +71,7 @@ public class StoveCounter : MonoBehaviour ,IinteractCounter
         }
         Destroy(CurrentCounterItem);
         CurrentCounterItem = Instantiate(item);
-        CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTopPoint,
+        CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTopPoint,
         CounterTopPoint.position);
         CounterHaveItem = true;
         IsCooking = false;

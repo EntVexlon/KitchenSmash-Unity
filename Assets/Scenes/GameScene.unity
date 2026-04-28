@@ -480,6 +480,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4481678960812475320, guid: fc992554f3861da4c93b606d72bc25a5, type: 3}
   m_PrefabInstance: {fileID: 1825827199}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &370569854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370569856}
+  - component: {fileID: 370569855}
+  m_Layer: 0
+  m_Name: CookRecipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &370569855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370569854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c189af070057cc848b4adfb596e8c37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  NoramlBurger:
+  - {fileID: 11400000, guid: 16bccc8debebe9349aab1fb90648c30e, type: 2}
+  - {fileID: 11400000, guid: 4625b09bd3bfcb84b908a0bba5fe3cee, type: 2}
+  - {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
+  - {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
+  - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
+--- !u!4 &370569856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370569854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,3 +2198,4 @@ SceneRoots:
   - {fileID: 1859467741}
   - {fileID: 546763858}
   - {fileID: 869375160}
+  - {fileID: 370569856}

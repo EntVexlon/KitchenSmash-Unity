@@ -49,14 +49,14 @@ public class InteractionHandler : MonoBehaviour
     public void InteractCounter(object sender, EventArgs e)
     {
         if(IsHitCounter)
-            if(Hit.collider.TryGetComponent(out IinteractCounter counter))
+            if(Hit.collider.TryGetComponent(out ICounter counter))
                 PlayerHandler.TryInteractCounter(counter);
     }
 
     public void InteractExecute(object sender, EventArgs e)
     {
         if (IsHitCounter)
-            if (Hit.collider.TryGetComponent(out IinteractCounter counter))
+            if (Hit.collider.TryGetComponent(out ICounter counter))
                 PlayerHandler.TryInteractExecute(counter);
     }
 }

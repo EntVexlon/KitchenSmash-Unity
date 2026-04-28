@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KitchenObject : MonoBehaviour 
+public class ObjectHandler : MonoBehaviour 
 {
     public string CurrentItemName;
     public void SetParent(Transform parent, Vector3 position)

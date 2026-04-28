@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CuttingCounter : MonoBehaviour, IinteractCounter
+public class CuttingCounter : BaseCounter
 {
     [SerializeField] private ProgressBarUI Progress_BarUI;
     [SerializeField] public Transform CounterTopPoint;
@@ -9,43 +9,41 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
     [SerializeField] private _CutItem[] IsSlicebelItem;
     [HideInInspector] public event Action OnItemCut;
     private int SliceCount;
-    public bool CounterHaveItem { get; set; } = false;
-    public GameObject CurrentCounterItem { get; set; }
 
-    public void TryDropItem(GameObject GetItem)
+    public override void TryDropItem(GameObject GetItem)
     {
         if (CounterHaveItem) return;
         foreach (_CutItem item in IsSlicebelItem)
         {
             CurrentCounterItem = GetItem;
-            if (CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName == item.InputObjectName)
+            if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
             {
                 Progress_BarUI.SetProgressbar(true);
                 Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
-                CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
+                CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTopPoint.position);
                 CounterHaveItem = true;
             }
         }
   
     }
 
-    public GameObject TryPickUpItem(Player ph)
+    public override GameObject TryPickUpItem(Player ph)
     {
         if (!CounterHaveItem) return null;
         Progress_BarUI.SetProgressbar(false);
-        CurrentCounterItem?.GetComponent<KitchenObject>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
         CounterHaveItem = false;
         GameObject @object = CurrentCounterItem;
         CurrentCounterItem = null;
         return @object;
     }
 
-    public void InteractAction()
+    public override void InteractAction()
     {
         if (!CounterHaveItem) return;
             foreach (_CutItem item in IsSlicebelItem)
             {
-            if (CurrentCounterItem?.GetComponent<KitchenObject>().CurrentItemName == item.InputObjectName)
+            if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
             {
                 SliceCount++;
                 Progress_BarUI.SetProgressbar(true);
@@ -55,7 +53,7 @@ public class CuttingCounter : MonoBehaviour, IinteractCounter
                 {
                     Destroy(CurrentCounterItem);
                     CurrentCounterItem = Instantiate(item.output);
-                    CurrentCounterItem?.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
+                    CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTopPoint.position);
                     CounterHaveItem = true;
                     SliceCount = 0;
                 }

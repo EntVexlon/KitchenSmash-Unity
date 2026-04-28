@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 819c2af55529aac4b90aed25d58af261, type: 3}
-  m_Name: Cheese-CheeseSlice
+  m_Name: CheeseSlice
   m_EditorClassIdentifier: Assembly-CSharp::_SlicedObhect
   input: {fileID: 8741352458104982031, guid: f83198aeeed2f3e4895fb47087ce68b0, type: 3}
   output: {fileID: 3812876574508226177, guid: e3edf2f12267e4144ac674786900eb24, type: 3}

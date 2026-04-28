@@ -28,11 +28,13 @@ public class CounterVisualHandler : MonoBehaviour
             SelectionObject.gameObject.SetActive(false);
     }
 
+    //For Cutting Counter
     public void KnifePlay()
     {
         KnifeAnim.SetTrigger("Cut");
     }
 
+    //
     private void OnPickUpObject()
     { CounterModelAnim.SetTrigger("OpenClose"); }
 

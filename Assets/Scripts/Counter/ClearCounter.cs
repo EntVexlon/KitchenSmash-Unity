@@ -1,30 +1,48 @@
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour , IinteractCounter
+public class ClearCounter : BaseCounter
 {
     [SerializeField] public Transform CounterTopPoint;
     [SerializeField] public Transform CounterTop;
-    public bool CounterHaveItem { get; set; } = false;
-    public GameObject CurrentCounterItem { get; set; }
+
+    //public override void TryDropItem(GameObject GetItem)
+    //{
+    //    if (CounterHaveItem) return;
+    //    CurrentCounterItem = GetItem;
+    //    CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTopPoint.position);
+    //    CounterHaveItem = true;
+    //}
+    //public override GameObject TryPickUpItem(Player ph)
+    //{
+    //    if (!CounterHaveItem) return null;
+    //    CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+    //    CounterHaveItem = false;
+    //    GameObject @object = CurrentCounterItem;
+    //    CurrentCounterItem = null;
+    //    return @object;
+    //}
 
 
-    public void InteractAction() {}
 
-    public void TryDropItem(GameObject GetItem)
+    public override void TryDropItem(GameObject GetItem)
     {
-        if (CounterHaveItem) return;
+        if (CounterHaveItem && CurrentCounterItem.TryGetComponent(out Object_Plate ObjectPlate))
+        {
+            //ObjectPlate.AddIngredientToPlate();
+        }
+        else if (CounterHaveItem) return;
         CurrentCounterItem = GetItem;
-        CurrentCounterItem.GetComponent<KitchenObject>().SetParent(CounterTop, CounterTopPoint.position);
+        CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTopPoint.position);
         CounterHaveItem = true;
     }
-    public GameObject TryPickUpItem(Player ph) {
-        if(!CounterHaveItem) return null;
-        CurrentCounterItem?.GetComponent<KitchenObject>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+    public override GameObject TryPickUpItem(Player ph)
+    {
+        if (!CounterHaveItem) return null;
+        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
         CounterHaveItem = false;
         GameObject @object = CurrentCounterItem;
         CurrentCounterItem = null;
         return @object;
     }
-
 
 }

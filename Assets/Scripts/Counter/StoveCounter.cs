@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class StoveCounter : BaseCounter
 {
-    [SerializeField] public Transform CounterTopPoint;
     [SerializeField] public Transform CounterTop;
     [SerializeField] private ProgressBarUI ProgressBar;
     [SerializeField] private ParticleEffectHandler EffectHandler;
@@ -20,7 +19,7 @@ public class StoveCounter : BaseCounter
                 ProgressBar.SetProgressbar(true);
                 ProgressBar.FillBar(CookTime, CookTime > item.RequiredCookTime ? item.RequiredCookTime : item.BurnTime);
                 CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(
-                    CounterTop, CounterTopPoint.position);
+                    CounterTop, CounterTop.position);
                 CounterHaveItem = true;
             }
         }
@@ -71,8 +70,8 @@ public class StoveCounter : BaseCounter
         }
         Destroy(CurrentCounterItem);
         CurrentCounterItem = Instantiate(item);
-        CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTopPoint,
-        CounterTopPoint.position);
+        CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop,
+        CounterTop.position);
         CounterHaveItem = true;
         IsCooking = false;
         CookTime = 0;

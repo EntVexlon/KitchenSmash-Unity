@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenIObject
   CurrentItemName: MeetPatty
+  ObjectSO: {fileID: 11400000, guid: 67ef437653f1ff54cb498f4ccd32e84f, type: 2}
 --- !u!1001 &2911635562203194026
 PrefabInstance:
   m_ObjectHideFlags: 0

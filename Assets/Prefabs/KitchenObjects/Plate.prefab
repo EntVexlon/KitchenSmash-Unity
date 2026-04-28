@@ -27,11 +27,12 @@ Transform:
   m_GameObject: {fileID: 3812876574508226177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.566385, y: 1.5796988, z: -0.5730539}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3275718244758967417}
+  - {fileID: 6668678653893116982}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-9121352281673763071
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   CurrentItemName: Plate
+  ObjectSO: {fileID: 0}
 --- !u!114 &53757075413435502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +61,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f14d23f64c7a4e48ac0a057a1ea757e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject_Plate
+  PlateTop: {fileID: 6668678653893116982}
+  objects: []
+  ValidIngredients:
+  - {fileID: 11400000, guid: 16bccc8debebe9349aab1fb90648c30e, type: 2}
+  - {fileID: 11400000, guid: 4625b09bd3bfcb84b908a0bba5fe3cee, type: 2}
+  - {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
+  - {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
+  - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
+  recipe: {fileID: 0}
+--- !u!1 &5970647301796179916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6668678653893116982}
+  m_Layer: 0
+  m_Name: PlateTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6668678653893116982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5970647301796179916}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.111, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3812876574508226176}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3098205093739279250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c044efb604a1c2d4ab08cedf8f93efbd, type: 3}
       propertyPath: m_Name
-      value: Plate
+      value: Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

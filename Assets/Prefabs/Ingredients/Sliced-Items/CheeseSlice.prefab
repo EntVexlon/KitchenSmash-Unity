@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   CurrentItemName: CheeseSlice
+  ObjectSO: {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
 --- !u!1001 &4519783040888074352
 PrefabInstance:
   m_ObjectHideFlags: 0

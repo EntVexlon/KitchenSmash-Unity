@@ -3,6 +3,7 @@ using UnityEngine;
 public class ObjectHandler : MonoBehaviour 
 {
     public string CurrentItemName;
+    public ScriptableObject ObjectSO;
     public void SetParent(Transform parent, Vector3 position)
     {
         transform.SetParent(parent);

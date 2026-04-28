@@ -4,23 +4,22 @@ using UnityEngine;
 public class CuttingCounter : BaseCounter
 {
     [SerializeField] private ProgressBarUI Progress_BarUI;
-    [SerializeField] public Transform CounterTopPoint;
     [SerializeField] public Transform CounterTop;
     [SerializeField] private _CutItem[] IsSlicebelItem;
     [HideInInspector] public event Action OnItemCut;
     private int SliceCount;
 
-    public override void TryDropItem(GameObject GetItem)
+    public override void TryDropItem(GameObject Item)
     {
         if (CounterHaveItem) return;
         foreach (_CutItem item in IsSlicebelItem)
         {
-            CurrentCounterItem = GetItem;
+            CurrentCounterItem = Item;
             if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
             {
                 Progress_BarUI.SetProgressbar(true);
                 Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
-                CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTopPoint.position);
+                CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
                 CounterHaveItem = true;
             }
         }
@@ -53,7 +52,7 @@ public class CuttingCounter : BaseCounter
                 {
                     Destroy(CurrentCounterItem);
                     CurrentCounterItem = Instantiate(item.output);
-                    CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTopPoint.position);
+                    CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
                     CounterHaveItem = true;
                     SliceCount = 0;
                 }

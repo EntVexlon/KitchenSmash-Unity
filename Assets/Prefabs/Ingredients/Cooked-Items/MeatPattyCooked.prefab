@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   CurrentItemName: MeatPatty-Cooked
+  ObjectSO: {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
 --- !u!1001 &4168346074490946298
 PrefabInstance:
   m_ObjectHideFlags: 0

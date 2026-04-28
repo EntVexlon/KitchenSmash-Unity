@@ -220,8 +220,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6196770216225966344, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      propertyPath: m_Name
+      value: CounterTop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8083400837605160325, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5375523722927353781, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       insertIndex: -1
@@ -262,10 +267,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlateCounter
   CounterTopPoint: {fileID: 3424074807110456143}
-  CounterTop: {fileID: 7360160311269363140}
+  CounterTop: {fileID: 0}
   ItemObject: {fileID: 11400000, guid: 8bd7c78ede2826643a3d05d27ac20c4b, type: 2}
---- !u!4 &7360160311269363140 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1337331405058171337, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
-  m_PrefabInstance: {fileID: 8407003471535205389}
-  m_PrefabAsset: {fileID: 0}

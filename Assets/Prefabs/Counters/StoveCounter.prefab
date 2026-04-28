@@ -556,6 +556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6196770216225966344, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      propertyPath: m_Name
+      value: CounterTop
+      objectReference: {fileID: 0}
     - target: {fileID: 6570590194712067906, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.044
@@ -565,7 +569,8 @@ PrefabInstance:
       value: 1.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8083400837605160325, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5375523722927353781, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       insertIndex: 0
@@ -608,14 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1baa3fadb4839140a0c582c9d1380a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoveCounter
-  CounterTopPoint: {fileID: 2906023767388596765}
-  CounterTop: {fileID: 7058281994337612950}
+  CounterTop: {fileID: 2906023767388596765}
   ProgressBar: {fileID: 355654882276180311}
   EffectHandler: {fileID: 2159465048271724332}
   CookItmes:
   - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
---- !u!4 &7058281994337612950 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1337331405058171337, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
-  m_PrefabInstance: {fileID: 8321290641182037343}
-  m_PrefabAsset: {fileID: 0}

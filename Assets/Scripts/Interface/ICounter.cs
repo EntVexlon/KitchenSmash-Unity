@@ -11,4 +11,8 @@ public interface ICounter
     void InteractAction();
     // I Should be do in Better way uhh any way..
 
+    bool TryAddIngredientToPlate(GameObject Item, Object_Plate PlateObject);
+    GameObject CurrentCounterItem { get; set; }
+
+
 }

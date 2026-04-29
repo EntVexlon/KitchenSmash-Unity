@@ -10,7 +10,8 @@ public class InteractionHandler : MonoBehaviour
     [SerializeField] private Player PlayerHandler;
     [HideInInspector] public RaycastHit Hit;
     [HideInInspector] public ContainerCounter LastContainerCounter;
-    private CounterVisualHandler CounterIndicate;
+    private CounterVisualHandler CurrentCounter;
+    private CounterVisualHandler PreviousCounter;
     private bool IsHitCounter;
     private float InteractObjectDistance = 2f;
 
@@ -21,8 +22,7 @@ public class InteractionHandler : MonoBehaviour
     }
     private void Update()
     {
-        //For Testing
-        UnityEngine.Debug.DrawRay(PlayerTransform.position, PlayerMove.LastMoveDir *
+        Debug.DrawRay(PlayerTransform.position, PlayerMove.LastMoveDir *
             InteractObjectDistance, Color.red);
         //
         //if (pmh.LastMoveDir == Vector3.zero) return;
@@ -36,13 +36,22 @@ public class InteractionHandler : MonoBehaviour
         //Counter Indication When Pointing Close At Counter 
         if (IsHitCounter)
         {
-            CounterIndicate =
-                Hit.collider.GetComponentInChildren<CounterVisualHandler>();
-            CounterIndicate.SetIndicator();
+            CurrentCounter = Hit.collider.GetComponentInChildren<CounterVisualHandler>();
+            if (PreviousCounter != null && PreviousCounter != CurrentCounter)
+                PreviousCounter.HideIndicator();
+
+            CurrentCounter.SetIndicator();
+            PreviousCounter = CurrentCounter;
         }
-        else if (CounterIndicate != null)
-            CounterIndicate.HideIndicator();
-    }
+        else if (PreviousCounter != null)
+        {
+            PreviousCounter.HideIndicator();
+            PreviousCounter = null;
+            CurrentCounter = null;
+        }
+
+
+}
 
 
     //Counter Interact

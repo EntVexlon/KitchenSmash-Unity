@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819c2af55529aac4b90aed25d58af261, type: 3}
   m_Name: CabbageSlice
   m_EditorClassIdentifier: Assembly-CSharp::_SlicedObhect
-  input: {fileID: 3812876574508226177, guid: 5c7a874afad357b4b896ac12e0a2a7ee, type: 3}
-  output: {fileID: 3812876574508226177, guid: 44b7e90f95929c04c8394768d8bd1d14, type: 3}
-  RequiredSliceCount: 6
-  InputObjectName: Cabbage
-  OutputObjectName: CabbageSlice
+  OutputObject: {fileID: 3812876574508226177, guid: 44b7e90f95929c04c8394768d8bd1d14, type: 3}

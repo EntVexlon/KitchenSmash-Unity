@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e17473f5204b4442b66ada03537df2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenIObject
-  CurrentItemName: Cabbage
-  ObjectSO: {fileID: 11400000, guid: 4369216ab7668604e9936a6db2e930b5, type: 2}
+  _Object: {fileID: 11400000, guid: 4369216ab7668604e9936a6db2e930b5, type: 2}
 --- !u!1001 &7790586617283749605
 PrefabInstance:
   m_ObjectHideFlags: 0

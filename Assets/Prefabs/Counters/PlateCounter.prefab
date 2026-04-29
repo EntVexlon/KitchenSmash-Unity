@@ -267,5 +267,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlateCounter
   CounterTopPoint: {fileID: 3424074807110456143}
-  CounterTop: {fileID: 0}
+  CounterTop: {fileID: 3424074807110456143}
   ItemObject: {fileID: 11400000, guid: 8bd7c78ede2826643a3d05d27ac20c4b, type: 2}

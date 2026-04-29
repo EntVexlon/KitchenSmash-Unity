@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e17473f5204b4442b66ada03537df2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
-  CurrentItemName: TomatoSlice
-  ObjectSO: {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
+  _Object: {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
 --- !u!1001 &2907037981153483531
 PrefabInstance:
   m_ObjectHideFlags: 0

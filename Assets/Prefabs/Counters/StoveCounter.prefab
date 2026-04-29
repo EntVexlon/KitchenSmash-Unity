@@ -618,3 +618,9 @@ MonoBehaviour:
   EffectHandler: {fileID: 2159465048271724332}
   CookItmes:
   - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
+  ValidItems:
+  - RawItem: {fileID: 11400000, guid: 67ef437653f1ff54cb498f4ccd32e84f, type: 2}
+    CookedItem: {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
+    BurnerdItem: {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
+    CookTime: 6
+    BurnTime: 4

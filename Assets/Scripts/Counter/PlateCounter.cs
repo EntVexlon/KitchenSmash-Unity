@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlateCounter : BaseCounter
 {
-    [SerializeField] public Transform CounterTopPoint;
     [SerializeField] public Transform CounterTop;
     [SerializeField] private _ItemObject ItemObject;
     private ObjectHandler Kitchen_Object;
@@ -48,7 +47,7 @@ public class PlateCounter : BaseCounter
             GameObject item = Instantiate(ItemObject.Prefab);
             PlateObject.Add(item);
             item.GetComponent<ObjectHandler>().SetParent(
-                CounterTop, CounterTopPoint.position + Vector3.up * (PlateCount * StackOrder));
+                CounterTop, CounterTop.position + Vector3.up * (PlateCount * StackOrder));
             PlateCount++;
             NxtPlateSpawnTime = Time.time + PlateSpawnCooldown;
         }

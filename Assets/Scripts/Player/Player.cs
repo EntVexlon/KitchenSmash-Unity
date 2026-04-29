@@ -7,26 +7,6 @@ public class Player : MonoBehaviour
     [HideInInspector] public GameObject CurrentItem;
     private bool IsHoldItem =  false;
 
-    //public void TryInteractCounter(ICounter Counter)
-    //{
-    //    if (IsHoldItem && CurrentItem != null)
-    //    {
-    //        //Place
-    //        if (Counter is ContainerCounter || Counter.CounterHaveItem) return;
-    //        Counter.TryDropItem(CurrentItem);
-    //        if (!Counter.CounterHaveItem) return;
-
-    //        CurrentItem = null;
-    //        IsHoldItem = false;
-    //    }
-    //    else if (!IsHoldItem && CurrentItem == null)
-    //    {
-    //        //Hold
-    //        CurrentItem = Counter.TryPickUpItem(this);
-    //        if (CurrentItem != null) IsHoldItem = true;
-    //    }
-    //}
-
     public void TryInteractCounter(ICounter Counter)
     {
         if(Counter == null) return;

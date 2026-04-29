@@ -1,34 +1,42 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CuttingCounter : BaseCounter
 {
     [SerializeField] private ProgressBarUI Progress_BarUI;
     [SerializeField] public Transform CounterTop;
-    [SerializeField] private _CutItem[] IsSlicebelItem;
     [HideInInspector] public event Action OnItemCut;
+    [SerializeField] private List<ValidItem> ValidItems;
+    [Serializable] public struct ValidItem
+    {
+        public float RequiredSliceCount;
+        public _IngredientItem RawItem;
+        public _CutItem SlicedItem;
+    }
     private int SliceCount;
 
-    public override void TryDropItem(GameObject Item)
+    public override void TryDropItem(GameObject CurrentItem)
     {
-        if (CounterHaveItem) return;
-        foreach (_CutItem item in IsSlicebelItem)
+        foreach (ValidItem item in ValidItems)
         {
-            CurrentCounterItem = Item;
-            if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
+
+            if (CurrentItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
             {
                 Progress_BarUI.SetProgressbar(true);
+                CurrentCounterItem = CurrentItem;
                 Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
                 CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
                 CounterHaveItem = true;
             }
         }
-  
+
     }
 
     public override GameObject TryPickUpItem(Player ph)
     {
         if (!CounterHaveItem) return null;
+        SliceCount = 0;
         Progress_BarUI.SetProgressbar(false);
         CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
         CounterHaveItem = false;
@@ -40,9 +48,9 @@ public class CuttingCounter : BaseCounter
     public override void InteractAction()
     {
         if (!CounterHaveItem) return;
-            foreach (_CutItem item in IsSlicebelItem)
-            {
-            if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
+        foreach (ValidItem item in ValidItems)
+        {
+            if (CurrentCounterItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
             {
                 SliceCount++;
                 Progress_BarUI.SetProgressbar(true);
@@ -51,7 +59,7 @@ public class CuttingCounter : BaseCounter
                 if (SliceCount == item.RequiredSliceCount)
                 {
                     Destroy(CurrentCounterItem);
-                    CurrentCounterItem = Instantiate(item.output);
+                    CurrentCounterItem = Instantiate(item.SlicedItem.OutputObject);
                     CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
                     CounterHaveItem = true;
                     SliceCount = 0;
@@ -66,7 +74,7 @@ public class CuttingCounter : BaseCounter
         Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
 
 
-        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler.ObjectSO);
+        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object);
 
         if (!IsIngredientAdded) return false;
         GameObject Plate = CurrentCounterItem;

@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class StoveCounter : BaseCounter
@@ -6,26 +8,41 @@ public class StoveCounter : BaseCounter
     [SerializeField] public Transform CounterTop;
     [SerializeField] private ProgressBarUI Progress_BarUI;
     [SerializeField] private ParticleEffectHandler EffectHandler;
-    [SerializeField] private _CookItem[] CookItmes;
+    [SerializeField] private List<ValidItem> ValidItems;
+    [Serializable] public struct ValidItem
+    {
+        public _IngredientItem RawItem;
+        public _CookItem  CookedItem;
+        public _CookItem  BurnerdItem;
+        public float CookTime;
+        public float BurnTime;
+    }
     private float CookTime = 0;
     private bool IsCooking = false;
-    public override void TryDropItem(GameObject Item) {
+
+
+
+    public override void TryDropItem(GameObject CurrentItem)
+    {
         if (CounterHaveItem) return;
-        foreach (_CookItem item in CookItmes)
+
+        foreach (ValidItem item in ValidItems)
         {
-            CurrentCounterItem = Item;
-            if (CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName == item.InputObjectName)
+            if(CurrentItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
             {
+                CurrentCounterItem = CurrentItem;
                 Progress_BarUI.SetProgressbar(true);
-                Progress_BarUI.FillBar(CookTime, CookTime > item.RequiredCookTime ? item.RequiredCookTime : item.BurnTime);
+                Progress_BarUI.FillBar(CookTime, CookTime > item.CookTime ? item.CookTime : item.BurnTime);
                 CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(
                     CounterTop, CounterTop.position);
                 CounterHaveItem = true;
             }
         }
     }
+
     public override GameObject TryPickUpItem(Player ph){
         if (!CounterHaveItem) return null;
+        CookTime = 0;
         Progress_BarUI.SetProgressbar(false);
         EffectHandler.SetVisual(false);
         StopAllCoroutines();
@@ -40,30 +57,24 @@ public class StoveCounter : BaseCounter
     // I know so much bools but 
     // maybe in future i will refactor it maybe :) 
 
-    public override void InteractAction() {
-    if(!CounterHaveItem || IsCooking) return;
-        foreach (_CookItem item in CookItmes)
+    public override void InteractAction()
+    {
+        if (!CounterHaveItem || IsCooking) return;
+        foreach (var item in ValidItems)
         {
-            if (item.InputObjectName == CurrentCounterItem?.GetComponent<ObjectHandler>().CurrentItemName)
-                StartCoroutine(AssignCookMethod(item));
+            if (CurrentCounterItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
+                StartCoroutine(AssignCookMethod(item.CookedItem));
         }
     }
-
-
-    //private IEnumerator AssignCookMethod(_CookItem item)
-    //{
-    //    if (!CounterHaveItem) yield break;
-    //    yield return Cook(item.RequiredCookTime, item.CookedObject);
-    //    yield return Cook(item.BurnTime, item.BurrnedObject);
-
-    //}
-
 
     private IEnumerator AssignCookMethod(_CookItem item)
     {
         if (!CounterHaveItem) yield break;
-        yield return Cook(item.RequiredCookTime, item.OutputObject);
-        yield return Cook(item.BurnTime, item.OutputObject);
+        foreach (var items in ValidItems)
+        {
+            yield return Cook(items.CookTime, items.CookedItem.OutputObject);
+            yield return Cook(items.BurnTime, items.BurnerdItem.OutputObject);
+        }
 
     }
     private IEnumerator Cook(float time, GameObject item)
@@ -93,7 +104,7 @@ public class StoveCounter : BaseCounter
         Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
 
 
-        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler.ObjectSO);
+        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object);
 
         if (!IsIngredientAdded) return false;
 

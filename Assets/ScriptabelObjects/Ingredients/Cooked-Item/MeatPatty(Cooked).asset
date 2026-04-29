@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0157b2419b1bd6949833b280cf1764a0, type: 3}
   m_Name: MeatPatty(Cooked)
   m_EditorClassIdentifier: Assembly-CSharp::_CookItem
-  InputObjectName: MeatPatty
-  RequiredCookTime: 6
-  BurnTime: 4
-  CookedObject: {fileID: 3812876574508226177, guid: 2090df9675c8dfd4883720a417b2fa58, type: 3}
-  BurrnedObject: {fileID: 3812876574508226177, guid: 6481692ef131b174f868819990d99fc1, type: 3}
+  OutputObject: {fileID: 3812876574508226177, guid: 2090df9675c8dfd4883720a417b2fa58, type: 3}

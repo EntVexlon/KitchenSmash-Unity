@@ -487,12 +487,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Progress_BarUI: {fileID: 4034534724730228634}
-  CounterTopPoint: {fileID: 4871041526208708125}
   CounterTop: {fileID: 4871041526208708125}
   IsSlicebelItem:
   - {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
   - {fileID: 11400000, guid: 4625b09bd3bfcb84b908a0bba5fe3cee, type: 2}
   - {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
+  ValidItems:
+  - RequiredSliceCount: 4
+    RawItem: {fileID: 11400000, guid: 415566778be467446a9e6519ea2d0403, type: 2}
+    SlicedItem: {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
+  - RequiredSliceCount: 3
+    RawItem: {fileID: 11400000, guid: 57d6e50f8ae42144d81c4fbcd30e8a35, type: 2}
+    SlicedItem: {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
+  - RequiredSliceCount: 6
+    RawItem: {fileID: 11400000, guid: 4369216ab7668604e9936a6db2e930b5, type: 2}
+    SlicedItem: {fileID: 11400000, guid: 4625b09bd3bfcb84b908a0bba5fe3cee, type: 2}
 --- !u!4 &4871041526208708125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6570590194712067906, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}

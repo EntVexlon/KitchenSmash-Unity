@@ -46,8 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e17473f5204b4442b66ada03537df2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenIObject
-  CurrentItemName: Bread
-  ObjectSO: {fileID: 11400000, guid: 16bccc8debebe9349aab1fb90648c30e, type: 2}
+  _Object: {fileID: 11400000, guid: 16bccc8debebe9349aab1fb90648c30e, type: 2}
 --- !u!1001 &1395028449477224493
 PrefabInstance:
   m_ObjectHideFlags: 0

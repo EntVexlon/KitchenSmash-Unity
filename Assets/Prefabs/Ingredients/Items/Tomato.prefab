@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e17473f5204b4442b66ada03537df2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenIObject
-  CurrentItemName: Tomato
-  ObjectSO: {fileID: 11400000, guid: 415566778be467446a9e6519ea2d0403, type: 2}
+  _Object: {fileID: 11400000, guid: 415566778be467446a9e6519ea2d0403, type: 2}
 --- !u!1001 &3059770448265146769
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -48,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   CurrentItemName: Plate
-  ObjectSO: {fileID: 0}
+  ObjectSO: {fileID: 11400000, guid: 8bd7c78ede2826643a3d05d27ac20c4b, type: 2}
+  Test: []
 --- !u!114 &53757075413435502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +70,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
   - {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
   - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
+  - {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
   recipe: {fileID: 0}
 --- !u!1 &5970647301796179916
 GameObject:

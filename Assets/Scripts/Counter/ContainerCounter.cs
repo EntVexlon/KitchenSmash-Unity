@@ -3,7 +3,7 @@ using System;
 
 public class ContainerCounter : BaseCounter
 {
-    [SerializeField] private _Ingredient Ingredient;
+    [SerializeField] private _IngredientItem Ingredient;
     private ObjectHandler Kitchen_Object;
     private GameObject IngredientObject;
     public event Action OnTryPickUpIngredient;
@@ -14,7 +14,6 @@ public class ContainerCounter : BaseCounter
         IngredientObject = Instantiate(Ingredient.Prefab);
 
         Kitchen_Object = IngredientObject.GetComponent<ObjectHandler>();
-        Kitchen_Object.CurrentItemName = Ingredient.ObjectName;
         Kitchen_Object.SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
         OnTryPickUpIngredient?.Invoke();
 

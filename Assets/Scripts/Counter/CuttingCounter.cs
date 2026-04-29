@@ -58,4 +58,25 @@ public class CuttingCounter : BaseCounter
                 }
             }}
     }
+
+    public override bool TryAddIngredientToPlate(GameObject Item, Object_Plate PlateObject)
+    {
+        bool IsIngredientAdded;
+        ObjectHandler Object_Handler;
+        Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
+
+
+        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler.ObjectSO);
+
+        if (!IsIngredientAdded) return false;
+        GameObject Plate = CurrentCounterItem;
+        CurrentCounterItem = Item;
+
+        Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
+        Object_Handler.SetParent(
+            PlateObject.PlateTop, PlateObject.PlateTop.position);
+        CurrentCounterItem = Plate;
+        Progress_BarUI.SetProgressbar(false);
+        return true;
+    }
 }

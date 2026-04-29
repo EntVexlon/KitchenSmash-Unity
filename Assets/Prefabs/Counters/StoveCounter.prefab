@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StoveCounter
   CounterTop: {fileID: 2906023767388596765}
-  ProgressBar: {fileID: 355654882276180311}
+  Progress_BarUI: {fileID: 355654882276180311}
   EffectHandler: {fileID: 2159465048271724332}
   CookItmes:
   - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}

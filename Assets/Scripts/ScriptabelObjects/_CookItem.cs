@@ -7,6 +7,5 @@ public class _CookItem : ScriptableObject
     public string InputObjectName;
     public float RequiredCookTime;
     public float BurnTime;
-    public GameObject CookedObject;
-    public GameObject BurrnedObject;
+    public GameObject OutputObject;
 }

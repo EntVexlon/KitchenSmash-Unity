@@ -1,8 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenuAttribute(menuName = "KitchenObject/CutItem", order = 2)]
+[CreateAssetMenu(menuName = "KitchenObject/CutItem", order = 2)]
 
-public class _CutItem : ScriptableObject
+public class _CutItem : _BaseItem
 {
     public GameObject OutputObject;
 }

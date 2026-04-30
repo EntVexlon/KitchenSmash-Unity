@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class ObjectHandler : MonoBehaviour 
 {
@@ -10,5 +9,4 @@ public class ObjectHandler : MonoBehaviour
         transform.position = position;
     }
 
-    public void UnSetParent() => transform.SetParent(null);
 }

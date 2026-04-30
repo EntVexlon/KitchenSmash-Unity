@@ -46,7 +46,7 @@ public class StoveCounter : BaseCounter
         Progress_BarUI.SetProgressbar(false);
         EffectHandler.SetVisual(false);
         StopAllCoroutines();
-        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHold, ph.ItemHold.position);
         CounterHaveItem = false;
         IsCooking = false;
         GameObject @object = CurrentCounterItem;
@@ -97,7 +97,7 @@ public class StoveCounter : BaseCounter
 
     }
 
-    public override bool TryAddIngredientToPlate(GameObject Item, Object_Plate PlateObject)
+    public override bool TryAddItemToPlate(GameObject Item, Object_Plate PlateObject)
     {
         bool IsIngredientAdded;
         ObjectHandler Object_Handler;

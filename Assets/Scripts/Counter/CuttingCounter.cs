@@ -38,7 +38,7 @@ public class CuttingCounter : BaseCounter
         if (!CounterHaveItem) return null;
         SliceCount = 0;
         Progress_BarUI.SetProgressbar(false);
-        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHold, ph.ItemHold.position);
         CounterHaveItem = false;
         GameObject @object = CurrentCounterItem;
         CurrentCounterItem = null;
@@ -67,7 +67,7 @@ public class CuttingCounter : BaseCounter
             }}
     }
 
-    public override bool TryAddIngredientToPlate(GameObject Item, Object_Plate PlateObject)
+    public override bool TryAddItemToPlate(GameObject Item, Object_Plate PlateObject)
     {
         bool IsIngredientAdded;
         ObjectHandler Object_Handler;

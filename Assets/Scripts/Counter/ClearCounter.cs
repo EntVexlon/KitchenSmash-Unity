@@ -14,14 +14,14 @@ public class ClearCounter : BaseCounter
     public override GameObject TryPickUpItem(Player ph)
     {
         if (!CounterHaveItem) return null;
-        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHold, ph.ItemHold.position);
         CounterHaveItem = false;
         GameObject @object = CurrentCounterItem;
         CurrentCounterItem = null;
         return @object;
     }
 
-    public override bool TryAddIngredientToPlate(GameObject Item, Object_Plate PlateObject)
+    public override bool TryAddItemToPlate(GameObject Item, Object_Plate PlateObject)
     {
         bool IsIngredientAdded;
         ObjectHandler Object_Handler;
@@ -32,7 +32,6 @@ public class ClearCounter : BaseCounter
         else Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
 
 
-        //IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler.ObjectSO);
         IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object);
 
         if (!IsIngredientAdded) return false;

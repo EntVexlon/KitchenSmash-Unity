@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] public Transform ItemHoldPoss;
-    [SerializeField] public Transform ItemHolder;
+    [SerializeField] public Transform ItemHold;
     [HideInInspector] public GameObject CurrentItem;
     private bool IsHoldItem =  false;
 
@@ -16,7 +15,7 @@ public class Player : MonoBehaviour
             bool IsItemAdded;
             if(CurrentItem.TryGetComponent(out Object_Plate Object_Plate)
                 && Counter.CounterHaveItem){
-                IsItemAdded = Counter.TryAddIngredientToPlate(Counter.CurrentCounterItem,Object_Plate);
+                IsItemAdded = Counter.TryAddItemToPlate(Counter.CurrentCounterItem,Object_Plate);
                 if (!IsItemAdded) return;
                 IsHoldItem = true;
                 Counter.CounterHaveItem = false;
@@ -25,7 +24,7 @@ public class Player : MonoBehaviour
             else if (Counter.CounterHaveItem && Counter.CurrentCounterItem.TryGetComponent(
                 out Object_Plate Plate)){
                 //If Holding a Item And Counter Have Plate Then Try To Add the Item To The Counter Plate
-                IsItemAdded = Counter.TryAddIngredientToPlate(CurrentItem, Plate);
+                IsItemAdded = Counter.TryAddItemToPlate(CurrentItem, Plate);
                 if (!IsItemAdded) return;
 
                 IsHoldItem = false;

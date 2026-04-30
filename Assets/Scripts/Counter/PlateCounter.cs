@@ -24,7 +24,7 @@ public class PlateCounter : BaseCounter
         NxtPlateSpawnTime = Time.time + PlateSpawnCooldown;
         GameObject item = PlateObject[PlateObject.Count - 1];
         Kitchen_Object = item.GetComponent<ObjectHandler>();
-        Kitchen_Object.SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        Kitchen_Object.SetParent(ph.ItemHold, ph.ItemHold.position);
         PlateObject.Remove(PlateObject[^1]);
         PlateCount--;
         return item;

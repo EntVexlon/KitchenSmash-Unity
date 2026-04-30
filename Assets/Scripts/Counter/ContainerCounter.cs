@@ -14,7 +14,7 @@ public class ContainerCounter : BaseCounter
         IngredientObject = Instantiate(Ingredient.Prefab);
 
         Kitchen_Object = IngredientObject.GetComponent<ObjectHandler>();
-        Kitchen_Object.SetParent(ph.ItemHolder, ph.ItemHoldPoss.position);
+        Kitchen_Object.SetParent(ph.ItemHold, ph.ItemHold.position);
         OnTryPickUpIngredient?.Invoke();
 
         return IngredientObject;

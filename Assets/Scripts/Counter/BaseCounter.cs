@@ -8,7 +8,7 @@ public class BaseCounter : MonoBehaviour , ICounter
     public  virtual GameObject TryPickUpItem(Player ph) => null;
     public  virtual void InteractAction() { }
 
-    public virtual bool TryAddIngredientToPlate(GameObject Item, Object_Plate PlateObject) => false;
+    public virtual bool TryAddItemToPlate(GameObject Item, Object_Plate PlateObject) => false;
 
 
 

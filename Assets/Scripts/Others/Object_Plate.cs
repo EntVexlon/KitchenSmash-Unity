@@ -8,26 +8,20 @@ public class Object_Plate : MonoBehaviour
     public List<ScriptableObject> ValidIngredients;
     [SerializeField] private Recipe recipe;
 
-    public bool AddIngredientToPlate(ScriptableObject SO)
+    public bool AddIngredientToPlate(ScriptableObject IncomingItem)
     {
-        if (!ValidIngredients.Contains(SO) || ObjectList.Contains(SO))
+        if (!ValidIngredients.Contains(IncomingItem) || ObjectList.Contains(IncomingItem))
             return false;
 
-        // To Check The Incoming Item is a Same Category Item if true then return
-        _BaseItem IncomingItem = SO as _BaseItem;
-        if (IncomingItem != null)
-        {
-            foreach (ScriptableObject ExistingItem in ObjectList)
-            {
-                _BaseItem Existing_Item = ExistingItem as _BaseItem;
-                if (Existing_Item != null && Existing_Item.Item_Category == IncomingItem.Item_Category)
-                return false;
-            }
-        }
+        // Excluding Double MeatPatty
+        if (IncomingItem is _CookItem)
+            foreach (var item in ObjectList)
+                if (item is _CookItem) return false;
+            
 
-        ObjectList.Add(SO);
-
+        ObjectList.Add(IncomingItem);
         return true;
-    }
+        
 
+    }
 }

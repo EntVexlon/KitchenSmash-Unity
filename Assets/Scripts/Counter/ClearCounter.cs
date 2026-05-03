@@ -27,7 +27,8 @@ public class ClearCounter : BaseCounter
         ObjectHandler Object_Handler;
 
         //if Counter Have Plate
-        if (CurrentCounterItem.TryGetComponent(out Object_Plate obj_pl))
+        if (CurrentCounterItem.TryGetComponent(out Object_Plate _))
+            // I Just Dont Want name this Parameter So Yeah..
             Object_Handler = Item.GetComponent<ObjectHandler>();
         else Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
 

@@ -13,8 +13,8 @@ public class StoveCounter : BaseCounter
     {
         public _IngredientItem RawItem;
         public _CookItem  CookedItem;
-        public _CookItem  BurnerdItem;
         public float CookTime;
+        public _CookItem  BurnerdItem;
         public float BurnTime;
     }
     private float CookTime = 0;
@@ -104,7 +104,7 @@ public class StoveCounter : BaseCounter
         Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
 
 
-        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object);
+        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object as _BaseItem);
 
         if (!IsIngredientAdded) return false;
 

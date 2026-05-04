@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819c2af55529aac4b90aed25d58af261, type: 3}
   m_Name: TomatoSlice
   m_EditorClassIdentifier: Assembly-CSharp::_SlicedObhect
-  Item_Category: 3
+  Icon: {fileID: 21300000, guid: c9f08c3c1ae2a364aaeaa3712540b1d4, type: 3}
   OutputObject: {fileID: 3812876574508226177, guid: 6ac51c103740f284ab160d0e9d844880, type: 3}

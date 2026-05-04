@@ -18,6 +18,7 @@ public class PlateCounter : BaseCounter
 
 
 
+
     public override GameObject TryPickUpItem(Player ph)
     {
         if (PlateCount == 0) return null;
@@ -30,14 +31,17 @@ public class PlateCounter : BaseCounter
         return item;
     }
 
-    // Yeah The [^1]
-    // The this ^ operator is suggested by visual studio
-    // when visual studio saw i am hardcoding the it the suggested that 
-    // i mean this 
-    //  PlateObject.Remove(PlateObject[PlateObject.Count - 1]);
-    // and that operator called index-from-end operator
-    //mean if it ^1 then it point to the index last elment 
-    // else if ^2 then it point the second last elemt
+    /* 
+    Yeah The [^1]
+    The this ^ operator is suggested by visual studio
+    when visual studio saw i am hardcoding the it the suggested that 
+    i mean this 
+    PlateObject.Remove(PlateObject[PlateObject.Count - 1]);
+    and that operator called index-from-end operator
+    mean if it ^1 then it point to the index last elment 
+    else if ^2 then it point the second last elemt
+    */
+
 
 
     private void Update()

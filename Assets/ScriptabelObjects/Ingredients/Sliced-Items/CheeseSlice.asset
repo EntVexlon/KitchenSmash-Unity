@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819c2af55529aac4b90aed25d58af261, type: 3}
   m_Name: CheeseSlice
   m_EditorClassIdentifier: Assembly-CSharp::_SlicedObhect
-  Item_Category: 3
+  Icon: {fileID: 21300000, guid: 549cb4f2b86d1b84d8cd41c1cfde26c8, type: 3}
   OutputObject: {fileID: 3812876574508226177, guid: e3edf2f12267e4144ac674786900eb24, type: 3}

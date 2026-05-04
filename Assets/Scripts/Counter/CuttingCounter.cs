@@ -74,7 +74,7 @@ public class CuttingCounter : BaseCounter
         Object_Handler = CurrentCounterItem.GetComponent<ObjectHandler>();
 
 
-        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object);
+        IsIngredientAdded = PlateObject.AddIngredientToPlate(Object_Handler._Object as _BaseItem);
 
         if (!IsIngredientAdded) return false;
         GameObject Plate = CurrentCounterItem;

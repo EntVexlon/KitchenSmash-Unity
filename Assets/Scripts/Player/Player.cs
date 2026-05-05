@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
             bool IsItemAdded;
             if(CurrentItem.TryGetComponent(out Object_Plate Object_Plate)
                 && Counter.CounterHaveItem){
-                IsItemAdded = Counter.TryAddItemToPlate(Counter.CurrentCounterItem,Object_Plate);
+                IsItemAdded = Counter.TryAddItem(Counter.CurrentCounterItem,Object_Plate);
                 if (!IsItemAdded) return;
                 IsHoldItem = true;
                 Counter.CounterHaveItem = false;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
             else if (Counter.CounterHaveItem && Counter.CurrentCounterItem.TryGetComponent(
                 out Object_Plate Plate)){
                 //If Holding a Item And Counter Have Plate Then Try To Add the Item To The Counter Plate
-                IsItemAdded = Counter.TryAddItemToPlate(CurrentItem, Plate);
+                IsItemAdded = Counter.TryAddItem(CurrentItem, Plate);
                 if (!IsItemAdded) return;
 
                 IsHoldItem = false;

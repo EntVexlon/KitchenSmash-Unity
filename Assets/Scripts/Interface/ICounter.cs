@@ -8,7 +8,9 @@ public interface ICounter
 
     void InteractAction();
 
-    bool TryAddItemToPlate(GameObject Item, Object_Plate PlateObject);
+    bool TryAddItem(GameObject Item, Object_Plate PlateObject);
+    //    ^  TryAddItemToPlate 
+
     GameObject CurrentCounterItem { get; set; }
 
 

@@ -97,7 +97,7 @@ public class StoveCounter : BaseCounter
 
     }
 
-    public override bool TryAddItemToPlate(GameObject Item, Object_Plate PlateObject)
+    public override bool TryAddItem(GameObject Item, Object_Plate PlateObject)
     {
         bool IsIngredientAdded;
         ObjectHandler Object_Handler;

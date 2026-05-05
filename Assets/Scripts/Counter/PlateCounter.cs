@@ -31,8 +31,7 @@ public class PlateCounter : BaseCounter
         return item;
     }
 
-    /* 
-    Yeah The [^1]
+    /* Yeah The [^1]
     The this ^ operator is suggested by visual studio
     when visual studio saw i am hardcoding the it the suggested that 
     i mean this 

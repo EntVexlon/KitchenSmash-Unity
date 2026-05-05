@@ -5,7 +5,7 @@ public class Object_Plate : MonoBehaviour
 {
     public Transform PlateTop;
     [SerializeField] private ItemIconUI IconUI;
-    //[SerializeField] private Recipe recipe;
+    //[SerializeField] private _Recipe recipe;
     public List<ScriptableObject> ObjectList;
     public List<ScriptableObject> ValidIngredients;
 

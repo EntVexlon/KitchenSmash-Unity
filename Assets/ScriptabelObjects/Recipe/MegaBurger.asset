@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c189af070057cc848b4adfb596e8c37b, type: 3}
   m_Name: MegaBurger
   m_EditorClassIdentifier: Assembly-CSharp::_Recipe
-  IngredientList:
+  ItemList:
   - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
   - {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
   - {fileID: 11400000, guid: 16bccc8debebe9349aab1fb90648c30e, type: 2}

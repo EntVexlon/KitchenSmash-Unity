@@ -6,5 +6,5 @@ using System.Collections.Generic;
 public class _Recipe : ScriptableObject
 {
 
-    public List<ScriptableObject> IngredientList;
+    public List<_BaseItem> ItemList;
 }

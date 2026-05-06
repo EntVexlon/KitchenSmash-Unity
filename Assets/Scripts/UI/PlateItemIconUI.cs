@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemIconUI : MonoBehaviour
+// Yeah I Also Dont Like This Script Name But Anyway..
+public class PlateItemIconUI : MonoBehaviour
 {
     //For Plate Item IconUI
     [SerializeField] private Transform IconTemplate;

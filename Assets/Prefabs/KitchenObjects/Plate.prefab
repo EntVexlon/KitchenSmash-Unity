@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2751253124764216851}
   - component: {fileID: 4228066387911267729}
   - component: {fileID: 6274156976516519360}
-  - component: {fileID: 7561240002730573801}
+  - component: {fileID: 5125801029287342736}
   m_Layer: 5
   m_Name: ItemIconUI
   m_TagString: Untagged
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMode
   Mode: 0
---- !u!114 &7561240002730573801
+--- !u!114 &5125801029287342736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,9 +151,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 135761790615597598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7272e92bc9e8d044595ee7a949910fa8, type: 3}
+  m_Script: {fileID: 11500000, guid: ebcd9e258e83b134f811dca7c4a38384, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ItemIconUI
+  m_EditorClassIdentifier: Assembly-CSharp::PlateItemIconUI
   IconTemplate: {fileID: 4228220387266501953}
   ItemIconLayer:
     serializedVersion: 2
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject_Plate
   PlateTop: {fileID: 6668678653893116982}
-  IconUI: {fileID: 7561240002730573801}
+  IconUI: {fileID: 5125801029287342736}
   ObjectList: []
   ValidIngredients:
   - {fileID: 11400000, guid: 16bccc8debebe9349aab1fb90648c30e, type: 2}

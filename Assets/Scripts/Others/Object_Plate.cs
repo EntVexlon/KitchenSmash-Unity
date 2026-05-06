@@ -4,8 +4,7 @@ using System.Collections.Generic;
 public class Object_Plate : MonoBehaviour
 {
     public Transform PlateTop;
-    [SerializeField] private ItemIconUI IconUI;
-    //[SerializeField] private _Recipe recipe;
+    [SerializeField] private PlateItemIconUI IconUI;
     public List<ScriptableObject> ObjectList;
     public List<ScriptableObject> ValidIngredients;
 

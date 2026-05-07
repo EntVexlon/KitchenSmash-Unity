@@ -179,7 +179,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 64820182}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 562bf9732c360f54e88551d72e36750b, type: 2}
   m_CullingMode: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskUI
   TaskTemplate: {fileID: 64820183}
   ContainerTransform: {fileID: 2100685234}
-  spacing: 120
+  card_space: 200
   move_speed: 10
 --- !u!1001 &294936624
 PrefabInstance:

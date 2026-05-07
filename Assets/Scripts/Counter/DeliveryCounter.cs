@@ -11,6 +11,7 @@ public class DeliveryCounter : BaseCounter
     private List<_Recipe> QueueOrder;
     private int MaxOrder = 4;
     private float NextOrder = 2;
+    private float NextOrderCoolDown = 2;
 
 
     public class OrderData : EventArgs
@@ -36,9 +37,8 @@ public class DeliveryCounter : BaseCounter
                 current_order = new_order,
             });
 
-            NextOrder = NextOrder * Time.time;
+            NextOrder = NextOrderCoolDown + Time.time;
             QueueOrder.Add(new_order);
-            Debug.Log(new_order);
         }
     }
 

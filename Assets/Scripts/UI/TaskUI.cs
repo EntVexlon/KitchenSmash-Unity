@@ -4,7 +4,6 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using static DeliveryCounter;
 
 public class TaskUI : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class TaskUI : MonoBehaviour
     private void Start()
     {
         DeliveryCounter.Instance.OnOrder += SetTask;
-        DeliveryCounter.Instance.OnOrderConfirm += RemoveTask;
+        DeliveryCounter.Instance.OnTryConfirmOrder += RemoveTask;
 
         TaskTemplate.gameObject.SetActive(false);
         TaskList = new List<(_Recipe, Transform)>();
@@ -42,7 +41,7 @@ public class TaskUI : MonoBehaviour
     }
 
 
-    private void SetTask(object sender, OrderData e)
+    private void SetTask(object sender, DeliveryCounter.OrderData e)
     {
         Transform new_task = Instantiate(TaskTemplate, ContainerTransform);
         RectTransform card_rt = new_task.GetComponent<RectTransform>();
@@ -70,11 +69,11 @@ public class TaskUI : MonoBehaviour
         TaskList.Add((e.current_order, new_task));
     }
 
-    private void RemoveTask(object sender, OrderData e)
+    private void RemoveTask(object sender, DeliveryCounter.OrderData e)
     {
         for (int i = 0; i < TaskList.Count; i++)
         {
-            if(TaskList[i].order.Category  == e.current_order.Category)
+            if(TaskList[i].order  == e.current_order)
             {
                 StartCoroutine(AnimateTaskCard(i));
                 return;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class CounterVisualHandler : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CounterVisualHandler : MonoBehaviour
     private void Start()
     {
         if (Container_Counter != null)
-            Container_Counter.OnTryPickUpIngredient += OnPickUpObject;
+            Container_Counter.OnTryPickUpItem += OnPickUpObject;
         if (Ctting_Counter != null)
             Ctting_Counter.OnItemCut += KnifePlay;
     }
@@ -29,14 +30,12 @@ public class CounterVisualHandler : MonoBehaviour
     }
 
     //For Cutting Counter
-    public void KnifePlay()
-    {
+    public void KnifePlay(object sender, EventArgs e) =>
         KnifeAnim.SetTrigger("Cut");
-    }
 
     //
-    private void OnPickUpObject()
-    { CounterModelAnim.SetTrigger("OpenClose"); }
+    private void OnPickUpObject() =>
+     CounterModelAnim.SetTrigger("OpenClose"); 
 
     ///<summary>
     /// Line 38:

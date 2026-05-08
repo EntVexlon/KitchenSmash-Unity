@@ -451,7 +451,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7982012679483999338, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8083400837605160325, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_AddedGameObjects:
@@ -468,6 +469,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2241132549175191798}
+    - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 640636692562127470}
   m_SourcePrefab: {fileID: 100100000, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
 --- !u!1 &2703765679349156681 stripped
 GameObject:
@@ -488,10 +492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   Progress_BarUI: {fileID: 4034534724730228634}
   CounterTop: {fileID: 4871041526208708125}
-  IsSlicebelItem:
-  - {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
-  - {fileID: 11400000, guid: 4625b09bd3bfcb84b908a0bba5fe3cee, type: 2}
-  - {fileID: 11400000, guid: f749c78f9d50e2e48a5950a9a0bbd931, type: 2}
   ValidItems:
   - RequiredSliceCount: 4
     RawItem: {fileID: 11400000, guid: 415566778be467446a9e6519ea2d0403, type: 2}
@@ -502,6 +502,19 @@ MonoBehaviour:
   - RequiredSliceCount: 6
     RawItem: {fileID: 11400000, guid: 4369216ab7668604e9936a6db2e930b5, type: 2}
     SlicedItem: {fileID: 11400000, guid: 4625b09bd3bfcb84b908a0bba5fe3cee, type: 2}
+--- !u!114 &640636692562127470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2703765679349156681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3add487ced8e7f24c9d6ec20f08b9ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundEffectHandler
+  SoundEffectGroup: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}
 --- !u!4 &4871041526208708125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6570590194712067906, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}

@@ -6,7 +6,7 @@ public class ContainerCounter : BaseCounter
     [SerializeField] private _IngredientItem Ingredient;
     private ObjectHandler Kitchen_Object;
     private GameObject IngredientObject;
-    public event Action OnTryPickUpIngredient;
+    public event Action OnTryPickUpItem;
 
 
     public override GameObject TryPickUpItem(Player ph)
@@ -15,7 +15,7 @@ public class ContainerCounter : BaseCounter
 
         Kitchen_Object = IngredientObject.GetComponent<ObjectHandler>();
         Kitchen_Object.SetParent(ph.ItemHold, ph.ItemHold.position);
-        OnTryPickUpIngredient?.Invoke();
+        OnTryPickUpItem?.Invoke();
 
         return IngredientObject;
     }

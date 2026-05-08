@@ -176,16 +176,32 @@ PrefabInstance:
       value: TrashCounter
       objectReference: {fileID: 0}
     - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2376955
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2235775
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       propertyPath: m_Size.z
-      value: 1.3626366
+      value: 1.2681849
       objectReference: {fileID: 0}
     - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      propertyPath: m_Center.x
+      value: -0.010263413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      propertyPath: m_Center.y
+      value: 0.56201744
+      objectReference: {fileID: 0}
+    - target: {fileID: 4811570969057381881, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       propertyPath: m_Center.z
-      value: -0.020941496
+      value: 0.026284337
       objectReference: {fileID: 0}
     - target: {fileID: 5375523722927353781, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,7 +243,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7982012679483999338, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5375523722927353781, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
@@ -240,6 +257,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1050842740527339908}
+    - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6790249652069730921}
   m_SourcePrefab: {fileID: 100100000, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
 --- !u!4 &2583838234686971368 stripped
 Transform:
@@ -263,3 +283,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b89582db0d3f42241a856ee314e275f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TrashCounter
+--- !u!114 &6790249652069730921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6084824297607444555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3add487ced8e7f24c9d6ec20f08b9ade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundEffectHandler
+  SoundEffectGroup: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}

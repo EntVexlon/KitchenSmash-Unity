@@ -6,7 +6,7 @@ public class CuttingCounter : BaseCounter
 {
     [SerializeField] private ProgressBarUI Progress_BarUI;
     [SerializeField] public Transform CounterTop;
-    [HideInInspector] public event Action OnItemCut;
+    public event EventHandler OnItemCut;
     [SerializeField] private List<ValidItem> ValidItems;
     [Serializable] public struct ValidItem
     {
@@ -53,9 +53,10 @@ public class CuttingCounter : BaseCounter
             if (CurrentCounterItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
             {
                 SliceCount++;
+                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.Item_Cut);
                 Progress_BarUI.SetProgressbar(true);
                 Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
-                OnItemCut?.Invoke();
+                OnItemCut?.Invoke(this, EventArgs.Empty);
                 if (SliceCount == item.RequiredSliceCount)
                 {
                     Destroy(CurrentCounterItem);

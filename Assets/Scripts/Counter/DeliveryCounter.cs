@@ -1,17 +1,21 @@
 using UnityEngine;
-using System.Collections;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 public class DeliveryCounter : BaseCounter
 {
     public static DeliveryCounter Instance; 
     [SerializeField] private _RecipeList RecipeList;
     public EventHandler<OrderData> OnOrder;
-    public EventHandler<OrderData> OnOrderConfirm;
+    public EventHandler<OrderData> OnTryConfirmOrder;
     private List<_Recipe> QueueOrder;
     private int MaxOrder = 4;
-    private float NextOrder = 2;
+    private float NextOrderTime = 2;
     private float NextOrderCoolDown = 2;
+ 
+
+
 
 
     public class OrderData : EventArgs
@@ -19,7 +23,7 @@ public class DeliveryCounter : BaseCounter
         public _Recipe current_order;
     }
 
-    private void Start()
+    private void Awake()
     {
         QueueOrder = new List<_Recipe>();
         Instance = this;
@@ -29,7 +33,7 @@ public class DeliveryCounter : BaseCounter
 
     private void Update()
     {
-        if (QueueOrder.Count < MaxOrder && Time.time > NextOrder)
+        if (QueueOrder.Count < MaxOrder && Time.time > NextOrderTime)
         {
             _Recipe new_order = RecipeList.List[UnityEngine.Random.Range(0, RecipeList.List.Count)];
             OnOrder?.Invoke(this, new OrderData
@@ -37,7 +41,7 @@ public class DeliveryCounter : BaseCounter
                 current_order = new_order,
             });
 
-            NextOrder = NextOrderCoolDown + Time.time;
+            NextOrderTime = NextOrderCoolDown + Time.time;
             QueueOrder.Add(new_order);
         }
     }
@@ -64,31 +68,46 @@ public class DeliveryCounter : BaseCounter
     {
         for (int i = 0; i < QueueOrder.Count; i++)
         {
-            _Recipe first_order = QueueOrder[i];
+            _Recipe first_order = QueueOrder[i];    
 
             if (first_order.ItemList.Count != Plate_Object.ObjectList.Count)
                 continue;
-            bool IsCorrectOrder = false;
+            bool IsCorrectOrder = true;
 
 
             foreach (ScriptableObject item in Plate_Object.ObjectList)
-                if (first_order.ItemList.Contains(item as _BaseItem))
-                    IsCorrectOrder = true;
+            {
+                if (!first_order.ItemList.Contains(item as _BaseItem))
+                {
+                    IsCorrectOrder = false;
+                    break;
+                }
+            }
+
 
             if (IsCorrectOrder)
             {
                 _Recipe confirmed_order = QueueOrder[i];
-                OnOrderConfirm?.Invoke(this, new OrderData
+                OnTryConfirmOrder?.Invoke(this, new OrderData
                 {
                     current_order = confirmed_order,
                 });
                 QueueOrder.RemoveAt(i);
                 Debug.Log("Correct Order!");
+                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.CorrectDelivery);
                 return;
             }
         }
 
         //If the Order Is Not Correct Then
+        GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.WrongDelivery);
         Debug.Log("Wrong Order!");
     }
+
+
+
+    /* Audio Handling */
+
+
 }
+

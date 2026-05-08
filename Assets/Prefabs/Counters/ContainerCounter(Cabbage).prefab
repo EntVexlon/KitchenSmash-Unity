@@ -76,7 +76,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ContainerCounter(Cabbage)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8253765451564869876, guid: d9ff96b47e21a9846b97522e17f9f9ea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

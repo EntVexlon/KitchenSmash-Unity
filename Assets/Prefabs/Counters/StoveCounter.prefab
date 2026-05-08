@@ -568,7 +568,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.49
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7982012679483999338, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8083400837605160325, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_AddedGameObjects:
@@ -616,11 +617,9 @@ MonoBehaviour:
   CounterTop: {fileID: 2906023767388596765}
   Progress_BarUI: {fileID: 355654882276180311}
   EffectHandler: {fileID: 2159465048271724332}
-  CookItmes:
-  - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
   ValidItems:
   - RawItem: {fileID: 11400000, guid: 67ef437653f1ff54cb498f4ccd32e84f, type: 2}
     CookedItem: {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
-    BurnerdItem: {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
     CookTime: 6
+    BurnerdItem: {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
     BurnTime: 4

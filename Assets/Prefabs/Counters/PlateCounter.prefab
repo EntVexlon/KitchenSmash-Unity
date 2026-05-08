@@ -224,7 +224,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7982012679483999338, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8083400837605160325, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
     m_AddedGameObjects:
@@ -266,6 +267,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d83098ae256b664d8d010ac22674cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlateCounter
-  CounterTopPoint: {fileID: 3424074807110456143}
   CounterTop: {fileID: 3424074807110456143}
   ItemObject: {fileID: 11400000, guid: 8bd7c78ede2826643a3d05d27ac20c4b, type: 2}

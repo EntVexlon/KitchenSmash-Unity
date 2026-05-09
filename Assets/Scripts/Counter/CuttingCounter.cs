@@ -53,7 +53,7 @@ public class CuttingCounter : BaseCounter
             if (CurrentCounterItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
             {
                 SliceCount++;
-                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.Item_Cut);
+                GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.Item_Cut);
                 Progress_BarUI.SetProgressbar(true);
                 Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
                 OnItemCut?.Invoke(this, EventArgs.Empty);

@@ -10,7 +10,12 @@ public class Player : MonoBehaviour
 
     private void Awake() =>
         Instance = this;
-    
+
+
+    private void Update() =>
+        Debug.DrawRay(transform.position, GetComponent<PlayerMoveHandler>().LastMoveDir * 2f, Color.red);
+  
+
     public void TryInteractCounter(ICounter Counter)
     {
         if(Counter == null) return;
@@ -27,7 +32,7 @@ public class Player : MonoBehaviour
                 if (!IsItemAdded) return;
                 IsHoldItem = true;
                 Counter.CounterHaveItem = false;
-                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.PickUp_Item);
+                GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.PickUp_Item);
                 return;
             }
             else if (Counter.CounterHaveItem && Counter.CurrentCounterItem.TryGetComponent(
@@ -39,7 +44,7 @@ public class Player : MonoBehaviour
                 IsHoldItem = false;
                 CurrentItem = null;
                 Counter.CounterHaveItem = true;
-                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.Drop_Item);
+                GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.Drop_Item);
                 return;
             }
             else if (Counter.CounterHaveItem) return;
@@ -48,7 +53,7 @@ public class Player : MonoBehaviour
             // Else Just Try To Place
             Counter.TryDropItem(CurrentItem);
             if (!Counter.CounterHaveItem) return;
-            GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.Drop_Item);
+            GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.Drop_Item);
             CurrentItem = null;
             IsHoldItem = false;
 
@@ -60,7 +65,7 @@ public class Player : MonoBehaviour
             if (CurrentItem != null)
             {
                 IsHoldItem = true;
-                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.PickUp_Item);
+                GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.PickUp_Item);
             }
         }
     }

@@ -6,7 +6,7 @@ public class TrashCounter : BaseCounter
     public override void TryDropItem(GameObject Item) {
         Destroy(Item);
         CounterHaveItem = true;
-        GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.TrashBin);
+        GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.TrashBin);
         StartCoroutine(ResetCounter());
     }
 

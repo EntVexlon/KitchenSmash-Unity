@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class ClientInput : MonoBehaviour
 {
-    private PlayerInputActions playerInputActions;
+    public PlayerInputActions playerInputActions;
     [HideInInspector] public event EventHandler OnInteractAction;
     [HideInInspector] public event EventHandler OnInteractExecute;
     //Thier is No Needed To use HideInInspector But Why Not
@@ -24,11 +24,5 @@ public class ClientInput : MonoBehaviour
     private void InteractExecute(InputAction.CallbackContext context)
     {
         OnInteractExecute?.Invoke(this, EventArgs.Empty);
-    }
-
-    public Vector3 MovementVector()
-    {
-        Vector3 inputVectorValue = playerInputActions.Player.Move.ReadValue<Vector3>();
-        return inputVectorValue;
     }
 }

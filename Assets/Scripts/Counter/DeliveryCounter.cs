@@ -94,13 +94,13 @@ public class DeliveryCounter : BaseCounter
                 });
                 QueueOrder.RemoveAt(i);
                 Debug.Log("Correct Order!");
-                GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.CorrectDelivery);
+                GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.CorrectDelivery);
                 return;
             }
         }
 
         //If the Order Is Not Correct Then
-        GetComponent<SoundEffectHandler>().OneTimeAudio(transform, SfxType.WrongDelivery);
+        GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.WrongDelivery);
         Debug.Log("Wrong Order!");
     }
 

@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class _SoundEffectGroup : ScriptableObject
 {
-    [SerializeField] public List<SfxCategory> SoundEffectList;
+    [SerializeField] public List<SoundEffectCategory> SoundEffectList;
 
     [Serializable]
-    public struct SfxCategory
+    public struct SoundEffectCategory
     {
         public SfxType Type;
         public AudioClip[] Clip;
@@ -21,10 +21,9 @@ public enum SfxType
     Item_Cut,
     PickUp_Item,
     Drop_Item,
-    FootStep,
-    Stove_Sizzel,
     CorrectDelivery,
     WrongDelivery,
     Warning,
+    Footstep,
     TrashBin
 }

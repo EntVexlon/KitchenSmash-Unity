@@ -21,7 +21,8 @@ public class StoveCounter : BaseCounter
     private bool IsCooking = false;
 
 
-
+    private void Update() =>
+        GetComponent<AudioHandler>().LoopAudio(AudioType.pan_sizzle, IsCooking);
     public override void TryDropItem(GameObject CurrentItem)
     {
         if (CounterHaveItem) return;
@@ -34,7 +35,7 @@ public class StoveCounter : BaseCounter
                 Progress_BarUI.SetProgressbar(true);
                 Progress_BarUI.FillBar(CookTime, CookTime > item.CookTime ? item.CookTime : item.BurnTime);
                 CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(
-                    CounterTop, CounterTop.position);
+                CounterTop, CounterTop.position);
                 CounterHaveItem = true;
             }
         }

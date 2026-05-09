@@ -22,11 +22,6 @@ public class InteractionHandler : MonoBehaviour
     }
     private void Update()
     {
-        Debug.DrawRay(PlayerTransform.position, PlayerMove.LastMoveDir *
-            InteractObjectDistance, Color.red);
-        //
-        //if (pmh.LastMoveDir == Vector3.zero) return;
-        //
 
         IsHitCounter = Physics.Raycast(PlayerTransform.position, PlayerMove.LastMoveDir, out Hit,
         InteractObjectDistance, CounterLayer);

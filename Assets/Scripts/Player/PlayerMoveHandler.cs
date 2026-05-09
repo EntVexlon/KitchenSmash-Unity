@@ -7,6 +7,7 @@ public class PlayerMoveHandler : MonoBehaviour
     [HideInInspector] public Vector3 moveDir;
     [HideInInspector] public Vector3 LastMoveDir;
     private Rigidbody rb;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -14,11 +15,19 @@ public class PlayerMoveHandler : MonoBehaviour
     private void Update()
     {
         //Player Movement System| My Kezhap xD
-        moveDir = clientInput.MovementVector();
+        moveDir = clientInput.playerInputActions.Player.Move.ReadValue<Vector3>();
         //transform.position += (move * move_speed) * Time.deltaTime;
         rb.MovePosition(rb.position + (moveDir * move_speed) * Time.deltaTime);
 
         //Last Move
-        if(moveDir != Vector3.zero) LastMoveDir = moveDir;
+        if (moveDir != Vector3.zero)
+        {
+            GetComponent<SoundEffectHandler>().TimedAudioPlayer
+                (Camera.main.transform, SfxType.Footstep, .2f);
+            LastMoveDir = moveDir;
+        }
+
+
+
     }
-}
+}       

@@ -8,8 +8,8 @@ public class InteractionHandler : MonoBehaviour
     [SerializeField] private ClientInput Client_Input;
     [SerializeField] private PlayerMoveHandler PlayerMove;
     [SerializeField] private Player PlayerHandler;
-    [HideInInspector] public RaycastHit Hit;
     [HideInInspector] public ContainerCounter LastContainerCounter;
+    public RaycastHit Hit;
     private CounterVisualHandler CurrentCounter;
     private CounterVisualHandler PreviousCounter;
     private bool IsHitCounter;
@@ -52,6 +52,8 @@ public class InteractionHandler : MonoBehaviour
     //Counter Interact
     public void InteractCounter(object sender, EventArgs e)
     {
+        if(GameHandler.Instance.CurrentState is GameHandler.InGameState.InCountdown)
+            return;
         if(IsHitCounter)
             if(Hit.collider.TryGetComponent(out ICounter counter))
                 PlayerHandler.TryInteractCounter(counter);
@@ -59,8 +61,16 @@ public class InteractionHandler : MonoBehaviour
 
     public void InteractExecute(object sender, EventArgs e)
     {
+        if (GameHandler.Instance.CurrentState is GameHandler.InGameState.InCountdown)
+            return;
         if (IsHitCounter)
             if (Hit.collider.TryGetComponent(out ICounter counter))
                 PlayerHandler.TryInteractExecute(counter);
+    }
+
+    private void OnDestroy()
+    {
+        Client_Input.OnInteractAction -= InteractCounter;
+        Client_Input.OnInteractExecute -= InteractExecute;
     }
 }

@@ -7,6 +7,7 @@ public class DeliveryCounter : BaseCounter
 {
     public static DeliveryCounter Instance; 
     [SerializeField] private _RecipeList RecipeList;
+    [HideInInspector] public int TotalCompletedTasks;
     public EventHandler<OrderData> OnOrder;
     public EventHandler<OrderData> OnTryConfirmOrder;
     private List<_Recipe> QueueOrder;
@@ -93,6 +94,7 @@ public class DeliveryCounter : BaseCounter
                     current_order = confirmed_order,
                 });
                 QueueOrder.RemoveAt(i);
+                TotalCompletedTasks++;
                 Debug.Log("Correct Order!");
                 GetComponent<SoundEffectHandler>().PlayAudioClip(transform, SfxType.CorrectDelivery);
                 return;

@@ -4,15 +4,23 @@ using UnityEngine.InputSystem;
 
 public class ClientInput : MonoBehaviour
 {
+    public static ClientInput Instance { get; private set; }
     public PlayerInputActions playerInputActions;
-    [HideInInspector] public event EventHandler OnInteractAction;
-    [HideInInspector] public event EventHandler OnInteractExecute;
-    //Thier is No Needed To use HideInInspector But Why Not
+    public event EventHandler OnInteractAction;
+    public event EventHandler OnInteractExecute;
+    public event EventHandler OnGamePause;
     private void Awake() {
+        Instance = this;
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += InteractAction;
         playerInputActions.Player.InteractExecute.performed += InteractExecute;
+        playerInputActions.Player.GamePanel.performed += BackButtonAction;
+    }
+
+    private void BackButtonAction(InputAction.CallbackContext context)
+    {
+    OnGamePause?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractAction(InputAction.CallbackContext context)

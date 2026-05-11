@@ -739,3 +739,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SizzleAudioEmitter
   SoundLib: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}
+  source: {fileID: 2374609238502558089}

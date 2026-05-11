@@ -22,8 +22,7 @@ public class PlayerMoveHandler : MonoBehaviour
         //Last Move
         if (moveDir != Vector3.zero)
         {
-            GetComponent<SoundEffectHandler>().TimedAudioPlayer
-                (Camera.main.transform, SfxType.Footstep, .2f);
+            GetComponent<FootstepEmitter>().TryPlayAudio(transform);
             LastMoveDir = moveDir;
         }
 

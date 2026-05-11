@@ -22,7 +22,7 @@ public class StoveCounter : BaseCounter
 
 
     private void Update() =>
-        GetComponent<AudioHandler>().LoopAudio(AudioType.pan_sizzle, IsCooking);
+        GetComponent<SizzleAudioEmitter>().PlayAudioClip(transform, IsCooking);
     public override void TryDropItem(GameObject CurrentItem)
     {
         if (CounterHaveItem) return;

@@ -120,7 +120,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GamePause"",
+                    ""name"": ""MainEscape"",
                     ""type"": ""Button"",
                     ""id"": ""6a01c9de-a209-4eb4-a6a9-6d6a7f2d6701"",
                     ""expectedControlType"": """",
@@ -269,7 +269,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""GamePause"",
+                    ""action"": ""MainEscape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -283,7 +283,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_InteractExecute = m_Player.FindAction("InteractExecute", throwIfNotFound: true);
-        m_Player_GamePause = m_Player.FindAction("GamePause", throwIfNotFound: true);
+        m_Player_MainEscape = m_Player.FindAction("MainEscape", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -367,7 +367,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_InteractExecute;
-    private readonly InputAction m_Player_GamePause;
+    private readonly InputAction m_Player_MainEscape;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -392,9 +392,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @InteractExecute => m_Wrapper.m_Player_InteractExecute;
         /// <summary>
-        /// Provides access to the underlying input action "Player/BackButtonAction".
+        /// Provides access to the underlying input action "Player/MainEscape".
         /// </summary>
-        public InputAction GamePanel => m_Wrapper.m_Player_GamePause;
+        public InputAction @MainEscape => m_Wrapper.m_Player_MainEscape;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -430,9 +430,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractExecute.started += instance.OnInteractExecute;
             @InteractExecute.performed += instance.OnInteractExecute;
             @InteractExecute.canceled += instance.OnInteractExecute;
-            GamePanel.started += instance.OnGamePause;
-            GamePanel.performed += instance.OnGamePause;
-            GamePanel.canceled += instance.OnGamePause;
+            @MainEscape.started += instance.OnMainEscape;
+            @MainEscape.performed += instance.OnMainEscape;
+            @MainEscape.canceled += instance.OnMainEscape;
         }
 
         /// <summary>
@@ -453,9 +453,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @InteractExecute.started -= instance.OnInteractExecute;
             @InteractExecute.performed -= instance.OnInteractExecute;
             @InteractExecute.canceled -= instance.OnInteractExecute;
-            GamePanel.started -= instance.OnGamePause;
-            GamePanel.performed -= instance.OnGamePause;
-            GamePanel.canceled -= instance.OnGamePause;
+            @MainEscape.started -= instance.OnMainEscape;
+            @MainEscape.performed -= instance.OnMainEscape;
+            @MainEscape.canceled -= instance.OnMainEscape;
         }
 
         /// <summary>
@@ -518,11 +518,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteractExecute(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "BackButtonAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "MainEscape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnGamePause(InputAction.CallbackContext context);
+        void OnMainEscape(InputAction.CallbackContext context);
     }
 }

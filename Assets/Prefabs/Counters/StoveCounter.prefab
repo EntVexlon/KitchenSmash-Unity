@@ -585,13 +585,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2374609238502558089}
+    - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1120657179915663341}
     - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7812026910991828966}
-    - targetCorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2374609238502558089}
+      addedObject: {fileID: 5952663145891224919}
   m_SourcePrefab: {fileID: 100100000, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
 --- !u!4 &2906023767388596765 stripped
 Transform:
@@ -608,40 +608,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4410064184450828822, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}
   m_PrefabInstance: {fileID: 8321290641182037343}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1120657179915663341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5640929793402560329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1baa3fadb4839140a0c582c9d1380a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StoveCounter
-  CounterTop: {fileID: 2906023767388596765}
-  Progress_BarUI: {fileID: 355654882276180311}
-  EffectHandler: {fileID: 2159465048271724332}
-  ValidItems:
-  - RawItem: {fileID: 11400000, guid: 67ef437653f1ff54cb498f4ccd32e84f, type: 2}
-    CookedItem: {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
-    CookTime: 6
-    BurnerdItem: {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
-    BurnTime: 4
---- !u!114 &7812026910991828966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5640929793402560329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a16ee08b22be37a4e8a7bb0c50031f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioHandler
-  AudioGroup: {fileID: 11400000, guid: 864f1ce0be1e0154eaaeab90f3657470, type: 2}
 --- !u!82 &2374609238502558089
 AudioSource:
   m_ObjectHideFlags: 0
@@ -739,3 +705,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1120657179915663341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640929793402560329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1baa3fadb4839140a0c582c9d1380a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StoveCounter
+  CounterTop: {fileID: 2906023767388596765}
+  Progress_BarUI: {fileID: 355654882276180311}
+  EffectHandler: {fileID: 2159465048271724332}
+  ValidItems:
+  - RawItem: {fileID: 11400000, guid: 67ef437653f1ff54cb498f4ccd32e84f, type: 2}
+    CookedItem: {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
+    CookTime: 6
+    BurnerdItem: {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
+    BurnTime: 4
+--- !u!114 &5952663145891224919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5640929793402560329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898436f886ac98b48b292f549421cb63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SizzleAudioEmitter
+  SoundLib: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}

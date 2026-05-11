@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeliveryCounter
   RecipeList: {fileID: 11400000, guid: 7f859843fcadc7c469ed6fc5ef239649, type: 2}
+  TotalCompletedTasks: 0
 --- !u!114 &8433601590636108035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3add487ced8e7f24c9d6ec20f08b9ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectHandler
-  SoundEffectGroup: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}
+  SoundLib: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}
 --- !u!4 &5495363706699764284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5375523722927353781, guid: 9668d38b3d0629f488e594c56ef9df6a, type: 3}

@@ -14,7 +14,11 @@ public class KeyBindEntry : MonoBehaviour
     {
         TipText.gameObject.SetActive(false);
         KeyBindBtn.onClick.AddListener(StartReBind);
+
     }
+
+    private void Start() => KeyText.text = ClientInput.Instance.GetBindKeyText(BindKey);
+    
 
     private void StartReBind()
     {

@@ -10,6 +10,7 @@ public class ClientInput : MonoBehaviour
     public event EventHandler OnInteractAction;
     public event EventHandler OnInteractExecute;
     public event EventHandler OnGamePause;
+    private const string UserKeyBind = "UserKeyBind";
 
     public enum BindKey
     {
@@ -23,6 +24,11 @@ public class ClientInput : MonoBehaviour
     private void Awake() {
         Instance = this;
         playerInputActions = new PlayerInputActions();
+
+        if(PlayerPrefs.HasKey(UserKeyBind))
+            playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(UserKeyBind));
+
+
         playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += InteractAction;
         playerInputActions.Player.InteractExecute.performed += InteractExecute;
@@ -88,6 +94,8 @@ public class ClientInput : MonoBehaviour
                 callback.Dispose();
                 OnReBound?.Invoke();
                 playerInputActions.Player.Enable();
+                PlayerPrefs.SetString(UserKeyBind, input_action.SaveBindingOverridesAsJson());
+                PlayerPrefs.Save();
             } )
             .OnCancel(callback =>
             {

@@ -320,19 +320,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2860607149300855202, guid: be1e77e8d4e81bf4292e5b46dc090583, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7600001
+      value: 1.61
       objectReference: {fileID: 0}
     - target: {fileID: 2860607149300855202, guid: be1e77e8d4e81bf4292e5b46dc090583, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.6000001
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2860607149300855202, guid: be1e77e8d4e81bf4292e5b46dc090583, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.9670587
+      value: 1.71
       objectReference: {fileID: 0}
     - target: {fileID: 2860607149300855202, guid: be1e77e8d4e81bf4292e5b46dc090583, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3297719422930810476, guid: be1e77e8d4e81bf4292e5b46dc090583, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

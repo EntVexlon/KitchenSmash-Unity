@@ -21,8 +21,6 @@ public class VehicleSpawner : MonoBehaviour
     [SerializeField] private float MaxSpeed = 14f;
 
     [Header("Spawn Tuning")]
-    [SerializeField] private float MinGap = 2f;
-    [SerializeField] private float MaxGap = 18f;
     [SerializeField] private float IntraClusterGap = 1.8f;
     [SerializeField] private float SpawnClearRadius = 5f;
 

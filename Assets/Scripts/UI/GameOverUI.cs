@@ -19,9 +19,14 @@ public class GameOverUI : MonoBehaviour
     {
         TotalCompletedTasks.text = DeliveryCounter.Instance.TotalCompletedTasks.ToString();
         Container.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
     }
     private void HidePanel()
     {
         Container.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+
     }
 }

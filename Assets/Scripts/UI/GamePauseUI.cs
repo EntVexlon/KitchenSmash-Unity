@@ -40,8 +40,8 @@ public class GamePauseUI : MonoBehaviour
         // This is new for me. I didn’t know before that we could pass the
         // (s, e) event parameter using a lambda expression;
     }
-    private void SetPanel() { if (PausePanel != null) PausePanel.SetActive(true); AudioListener.pause = true; }
-    private void HidePanel() { if (PausePanel != null) PausePanel.SetActive(false); AudioListener.pause = false; }
+    private void SetPanel() { if (PausePanel != null) PausePanel.SetActive(true);  }
+    private void HidePanel() { if (PausePanel != null) PausePanel.SetActive(false); }
 
 
     private void EscapeHandler(object sender, EventArgs e)
@@ -53,12 +53,16 @@ public class GamePauseUI : MonoBehaviour
         }
         ToggleGamePausePanel();
     }
-    public void ToggleGamePausePanel()
+    private void ToggleGamePausePanel()
     {
-        if(OptionsPanel.IsOptionMenuOpen) return;
+        if (OptionsPanel.IsOptionMenuOpen) return;
         IsGamePaused = !IsGamePaused;
-        if (IsGamePaused) { Time.timeScale = 0; SetPanel(); }
-        else { Time.timeScale = 1; HidePanel(); }
+
+        Time.timeScale = IsGamePaused ? 0 : 1;
+        AudioListener.pause = IsGamePaused; 
+
+        if (IsGamePaused) SetPanel();
+        else HidePanel();
     }
 
 }

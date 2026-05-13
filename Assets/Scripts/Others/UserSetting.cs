@@ -7,8 +7,9 @@ public  class UserSetting  : MonoBehaviour
 
     [NonSerialized] public  float MusicVolume;
     [NonSerialized] public  float SoundVolume;
-    private float DefaultVolume = 1f;
+    [NonSerialized] public  float DefaultVolume = 1f;
     //Sound Effect Volume ^
+    [NonSerialized] public Action OnAudioUpdate;
 
     // Data Keys
     private const string User_MusicVolume = "MusicVolume";
@@ -24,6 +25,7 @@ public  class UserSetting  : MonoBehaviour
         SoundVolume = sound_volume;
 
         PlayerPrefs.Save();
+        OnAudioUpdate?.Invoke();
     }
 
     private void LoadSetting()

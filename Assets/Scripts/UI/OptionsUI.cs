@@ -13,7 +13,7 @@ public class OptionsUI : MonoBehaviour
     [NonSerialized] public bool IsOptionMenuOpen = false;
 
 
-    private void Awake()
+    private void Start()
     {
         BackBtn.onClick.AddListener(() => HidePanel());
         Instance = this;
@@ -27,10 +27,11 @@ public class OptionsUI : MonoBehaviour
         // SFx slider changed → pass current music value + new sfx value
         SFxVolumeSlider.onValueChanged.AddListener(value =>
             UserSetting.Instance.SetVolume(MusicVolumeSlider.value, value));
-    }
 
-    private void Start() =>
+        //
         OptionsMenu.SetActive(false);
+
+    }
 
 
 

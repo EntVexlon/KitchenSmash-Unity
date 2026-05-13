@@ -35,24 +35,24 @@ public class VehicleAudioHandler : MonoBehaviour
     // ─────────────────────────────────────────
     private void Awake()
     {
-        // ── Engine source (already on GameObject) ──
         engineSrc = GetComponent<AudioSource>();
         Configure3D(engineSrc, MinDist, MaxDist, DopplerLevel);
         engineSrc.loop = true;
         engineSrc.volume = 0f;
         engineSrc.playOnAwake = false;
 
-        // ── Horn source (second AudioSource on same GO) ──
         hornSrc = gameObject.AddComponent<AudioSource>();
         Configure3D(hornSrc, MinDist * 1.5f, MaxDist * 1.2f, 0f);
         hornSrc.loop = false;
         hornSrc.playOnAwake = false;
 
-        // Cache user volume once — sound moves with car automatically
-        // because AudioSources are ON the car GameObject
         if (UserSetting.Instance != null)
+        {
             userVolume = UserSetting.Instance.SoundVolume;
+            UserSetting.Instance.OnAudioUpdate += RefreshVolume; // ← subscribe
+        }
     }
+
 
     // ── Called by VehicleMoveHandler ─────────
     public void StartEngine()
@@ -70,6 +70,18 @@ public class VehicleAudioHandler : MonoBehaviour
 
         if (HornClips != null && HornClips.Length > 0)
             StartCoroutine(PassiveHornLoop());
+    }
+
+
+    // ── Called By UserSetting  ──
+    public void RefreshVolume()
+    {
+        if (UserSetting.Instance == null || isDestroyed) return;
+        userVolume = UserSetting.Instance.SoundVolume;
+
+        // update engine volume immediately if playing
+        if (engineStarted && engineSrc != null)
+            engineSrc.volume = EngineVolume * userVolume;
     }
 
     // ── Called by VehicleMoveHandler when slowing ──
@@ -124,15 +136,12 @@ public class VehicleAudioHandler : MonoBehaviour
         isDestroyed = true;
         StopAllCoroutines();
 
-        // Snapshot position before GameObject is gone
-        Vector3 lastPos = transform.position;
+        if (UserSetting.Instance != null)
+            UserSetting.Instance.OnAudioUpdate -= RefreshVolume; // ← unsubscribe
 
+        Vector3 lastPos = transform.position;
         if (engineSrc != null && engineSrc.isPlaying)
             SpawnFadeOutGhost(engineSrc, lastPos, fadeDur: 0.4f);
-
-        // Horn: only detach if actually mid-play, otherwise skip
-        // This was causing the stutter — horn AudioSource was being
-        // detached even when silent, playing garbage buffer data
         if (hornSrc != null && hornSrc.isPlaying && hornSrc.clip != null)
             SpawnFadeOutGhost(hornSrc, lastPos, fadeDur: 0.2f);
     }

@@ -17,8 +17,8 @@ public class InteractionHandler : MonoBehaviour
 
     private void Start()
     {
-        Client_Input.OnInteractAction += InteractCounter;
-        Client_Input.OnInteractExecute += InteractExecute;
+        Client_Input.OnInteract += InteractCounter;
+        Client_Input.OnInteractAction += InteractExecute;
     }
     private void Update()
     {
@@ -52,7 +52,7 @@ public class InteractionHandler : MonoBehaviour
     //Counter Interact
     public void InteractCounter(object sender, EventArgs e)
     {
-        if(GameHandler.Instance.CurrentState is GameHandler.InGameState.InCountdown)
+        if(GameHandler.Instance.CurrentState is GameHandler.GameState.Countdown)
             return;
         if(IsHitCounter)
             if(Hit.collider.TryGetComponent(out ICounter counter))
@@ -61,7 +61,7 @@ public class InteractionHandler : MonoBehaviour
 
     public void InteractExecute(object sender, EventArgs e)
     {
-        if (GameHandler.Instance.CurrentState is GameHandler.InGameState.InCountdown)
+        if (GameHandler.Instance.CurrentState is GameHandler.GameState.Countdown)
             return;
         if (IsHitCounter)
             if (Hit.collider.TryGetComponent(out ICounter counter))
@@ -70,7 +70,7 @@ public class InteractionHandler : MonoBehaviour
 
     private void OnDestroy()
     {
-        Client_Input.OnInteractAction -= InteractCounter;
-        Client_Input.OnInteractExecute -= InteractExecute;
+        Client_Input.OnInteract -= InteractCounter;
+        Client_Input.OnInteractAction -= InteractExecute;
     }
 }

@@ -10,7 +10,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "e4418866-c9fc-4c44-bf99-84c03070e33d",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Vector2",
                     "processors": "NormalizeVector3",
                     "interactions": "",
                     "initialStateCheck": true
@@ -25,7 +25,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InteractExecute",
+                    "name": "InteractAction",
                     "type": "Button",
                     "id": "6b7afb5c-7cf3-4598-95c1-01cf8e154a28",
                     "expectedControlType": "",
@@ -156,8 +156,41 @@
                 },
                 {
                     "name": "",
+                    "id": "8affda06-b320-47d7-b96f-d21fb97fd828",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone(min=0.5)",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7dd1af39-a4a0-49c7-9823-9c6d8f4a65e2",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d39d494b-ce44-413a-b550-2aafb7645a22",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23937108-2f52-46b2-8684-df9b4b6d3583",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -172,7 +205,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "InteractExecute",
+                    "action": "InteractAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d81cb4c4-289a-40ea-b5a7-375b29cb40ff",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InteractAction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -180,6 +224,17 @@
                     "name": "",
                     "id": "f9d5cf91-c788-4672-81b3-07497a133dac",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MainEscape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8d4bd82-7a55-4244-8512-facc790fe9a8",
+                    "path": "<Gamepad>/{Menu}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // Its a Audio handler For Player Footstep
-public class FootstepEmitter : MonoBehaviour
+public class FootstepAudio : MonoBehaviour
 {
     private float initial_time;
     private float max_time = .1f;

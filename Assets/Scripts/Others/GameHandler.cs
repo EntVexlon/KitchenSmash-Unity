@@ -4,49 +4,58 @@ using UnityEngine;
 public class GameHandler : MonoBehaviour
 {
     [HideInInspector] public static GameHandler Instance { get; private set; }
-    [HideInInspector] public InGameState CurrentState;
+    [HideInInspector] public GameState CurrentState = GameState.Standby;
 
     [NonSerialized] public float CountdownTime = 3f;
-    [NonSerialized] public float BootingTime;
     [NonSerialized] public float PlayTime;
     [NonSerialized] public float MaxPlayTime = 30f;
-    [HideInInspector] public enum InGameState
+
+    public Action OnStateChange;
+    [HideInInspector] public enum GameState
     {
-        Booting,
-        InCountdown,
+        Standby,
+        Countdown,
         Playing,
         Paused,
         GameOver
     }
 
+    
+
     private void Awake()
     => Instance = this;
+
+    private void Start() =>
+        ClientInput.Instance.OnInteract += (object sender, EventArgs e) =>
+        {
+          if (CurrentState == GameState.Standby)
+            CurrentState = GameState.Countdown;
+          OnStateChange?.Invoke();
+        };
 
     private void Update()
     {
         switch (CurrentState)
         {
-            case InGameState.Booting:
-                BootingTime -= Time.deltaTime;
-                if (BootingTime < 0)
-                    CurrentState = InGameState.InCountdown;
+            case GameState.Standby:
+               
                 break;
-            case InGameState.InCountdown:
+            case GameState.Countdown:
                 CountdownTime -= Time.deltaTime;
                 if (CountdownTime < 0)
                 {
                     PlayTime = MaxPlayTime;
-                    CurrentState = InGameState.Playing;
+                    CurrentState = GameState.Playing;
                 }
                 break;
-            case InGameState.Playing:
+            case GameState.Playing:
                 PlayTime -= Time.deltaTime;
                 if (PlayTime < 0)
-                    CurrentState = InGameState.GameOver;
+                    CurrentState = GameState.GameOver;
                 break;
-            case InGameState.Paused:
+            case GameState.Paused:
                 break;
-            case InGameState.GameOver:
+            case GameState.GameOver:
                 break;
         }
     }

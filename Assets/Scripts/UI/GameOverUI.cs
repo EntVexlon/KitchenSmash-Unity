@@ -6,13 +6,22 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private GameObject Container;
     [SerializeField] private TextMeshProUGUI TotalCompletedTasks;
 
+    private bool IsGameOver = false;
+
     private void Update()
     {
-        if (GameHandler.Instance.CurrentState is
-            GameHandler.InGameState.GameOver)
-            SetPanel();
-        else
-            HidePanel();
+        bool isGameOver = GameHandler.Instance.CurrentState is GameHandler.GameState.GameOver;
+
+        if (isGameOver && !IsGameOver)
+        {
+            IsGameOver = true;
+            SetPanel(); 
+        }
+        else if (!isGameOver && IsGameOver)
+        {
+            IsGameOver = false;
+            HidePanel(); 
+        }
     }
 
     private void SetPanel()
@@ -22,11 +31,8 @@ public class GameOverUI : MonoBehaviour
         Time.timeScale = 0f;
         AudioListener.pause = true;
     }
-    private void HidePanel()
-    {
-        Container.gameObject.SetActive(false);
-        Time.timeScale = 1f;
-        AudioListener.pause = false;
 
-    }
+    private void HidePanel() =>
+        Container.gameObject.SetActive(false);
+   
 }

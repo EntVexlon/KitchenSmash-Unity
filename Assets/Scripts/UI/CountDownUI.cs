@@ -8,7 +8,7 @@ public class CountDownUI : MonoBehaviour
     private void Update()
     {
         if(GameHandler.Instance.CurrentState is
-            GameHandler.InGameState.InCountdown)
+            GameHandler.GameState.Countdown)
             SetText();
         else
             HideText();

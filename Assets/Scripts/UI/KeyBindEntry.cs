@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.iOS.Xcode;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,14 +24,14 @@ public class KeyBindEntry : MonoBehaviour
         KeyText.gameObject.SetActive(false);
         TipText.gameObject.SetActive(true);
 
-        ClientInput.Instance.Rebind(BindKey, OnRebindComplete, OnRebindCancle);
+        ClientInput.Instance.Rebind(BindKey, OnReBindComplete, OnReBindCancle);
     }
 
-    private void OnRebindComplete() {
+    private void OnReBindComplete() {
         RefreshKeyText();
         ResetVisual();
     }
-    private void OnRebindCancle() => ResetVisual();
+    private void OnReBindCancle() => ResetVisual();
 
     private void RefreshKeyText() =>
         KeyText.text = ClientInput.Instance.GetBindKeyText(BindKey);

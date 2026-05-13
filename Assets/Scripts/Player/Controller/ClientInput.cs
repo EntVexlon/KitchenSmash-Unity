@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +6,10 @@ public class ClientInput : MonoBehaviour
 {
     public static ClientInput Instance { get; private set; }
     public PlayerInputActions playerInputActions;
+    public event EventHandler OnInteract;
     public event EventHandler OnInteractAction;
-    public event EventHandler OnInteractExecute;
     public event EventHandler OnGamePause;
+    public Action OnHotKeyChange;
     private const string UserKeyBind = "UserKeyBind";
 
     public enum BindKey
@@ -19,7 +19,9 @@ public class ClientInput : MonoBehaviour
         MoveLeft,
         MoveRight,
         Interact,
-        InteractAction
+        InteractAction,
+        GamePad_Interact,
+        GamePad_InteractAction,
     }
     private void Awake() {
         Instance = this;
@@ -30,8 +32,8 @@ public class ClientInput : MonoBehaviour
 
 
         playerInputActions.Player.Enable();
-        playerInputActions.Player.Interact.performed += InteractAction;
-        playerInputActions.Player.InteractExecute.performed += InteractExecute;
+        playerInputActions.Player.Interact.performed += Interact;
+        playerInputActions.Player.InteractAction.performed += InteractAction;
         playerInputActions.Player.MainEscape.performed += BackButtonAction;
 
     }
@@ -39,12 +41,12 @@ public class ClientInput : MonoBehaviour
     private void BackButtonAction(InputAction.CallbackContext context) =>
     OnGamePause?.Invoke(this, EventArgs.Empty);
 
-    private void InteractAction(InputAction.CallbackContext context) =>
+    private void Interact(InputAction.CallbackContext context) =>
         //I Know thier is no need for a Event For this But I am a Clean Code Lover So.
-        OnInteractAction?.Invoke(this, EventArgs.Empty);
+        OnInteract?.Invoke(this, EventArgs.Empty);
 
-    private void InteractExecute(InputAction.CallbackContext context) =>
-        OnInteractExecute?.Invoke(this, EventArgs.Empty);
+    private void InteractAction(InputAction.CallbackContext context) =>
+        OnInteractAction?.Invoke(this, EventArgs.Empty);
 
     public string GetBindKeyText(BindKey bind_key)
     {
@@ -61,7 +63,11 @@ public class ClientInput : MonoBehaviour
           case BindKey.Interact:
                 return playerInputActions.Player.Interact.bindings[0].ToDisplayString();
           case BindKey.InteractAction:
-              return playerInputActions.Player.InteractExecute.bindings[0].ToDisplayString();
+              return playerInputActions.Player.InteractAction.bindings[0].ToDisplayString();
+            case BindKey.GamePad_Interact:
+                return playerInputActions.Player.Interact.bindings[1].ToDisplayString();
+            case BindKey.GamePad_InteractAction:
+                return playerInputActions.Player.InteractAction.bindings[1].ToDisplayString();
             default:
                 return string.Empty;
         }
@@ -83,7 +89,7 @@ public class ClientInput : MonoBehaviour
           case BindKey.MoveLeft: input_action = playerInputActions.Player.Move; binding_index = 3;break;
           case BindKey.MoveRight: input_action = playerInputActions.Player.Move; binding_index = 4;break;
           case BindKey.Interact: input_action = playerInputActions.Player.Interact; binding_index = 0;break;
-          case BindKey.InteractAction: input_action = playerInputActions.Player.InteractExecute; binding_index = 0;break;
+          case BindKey.InteractAction: input_action = playerInputActions.Player.InteractAction; binding_index = 0;break;
         }
 
 
@@ -94,6 +100,7 @@ public class ClientInput : MonoBehaviour
                 callback.Dispose();
                 OnReBound?.Invoke();
                 playerInputActions.Player.Enable();
+                OnHotKeyChange?.Invoke();
                 PlayerPrefs.SetString(UserKeyBind, input_action.SaveBindingOverridesAsJson());
                 PlayerPrefs.Save();
             } )

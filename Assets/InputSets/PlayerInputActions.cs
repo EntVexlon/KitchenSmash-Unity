@@ -96,7 +96,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""e4418866-c9fc-4c44-bf99-84c03070e33d"",
-                    ""expectedControlType"": ""Vector3"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": ""NormalizeVector3"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -242,8 +242,41 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""8affda06-b320-47d7-b96f-d21fb97fd828"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.5)"",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7dd1af39-a4a0-49c7-9823-9c6d8f4a65e2"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""d39d494b-ce44-413a-b550-2aafb7645a22"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23937108-2f52-46b2-8684-df9b4b6d3583"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -264,8 +297,30 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d81cb4c4-289a-40ea-b5a7-375b29cb40ff"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InteractExecute"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""f9d5cf91-c788-4672-81b3-07497a133dac"",
                     ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MainEscape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8d4bd82-7a55-4244-8512-facc790fe9a8"",
+                    ""path"": ""<Gamepad>/{Menu}"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -388,9 +443,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
-        /// Provides access to the underlying input action "Player/InteractExecute".
+        /// Provides access to the underlying input action "Player/InteractAction".
         /// </summary>
-        public InputAction @InteractExecute => m_Wrapper.m_Player_InteractExecute;
+        public InputAction InteractAction => m_Wrapper.m_Player_InteractExecute;
         /// <summary>
         /// Provides access to the underlying input action "Player/MainEscape".
         /// </summary>
@@ -427,9 +482,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @InteractExecute.started += instance.OnInteractExecute;
-            @InteractExecute.performed += instance.OnInteractExecute;
-            @InteractExecute.canceled += instance.OnInteractExecute;
+            InteractAction.started += instance.OnInteractExecute;
+            InteractAction.performed += instance.OnInteractExecute;
+            InteractAction.canceled += instance.OnInteractExecute;
             @MainEscape.started += instance.OnMainEscape;
             @MainEscape.performed += instance.OnMainEscape;
             @MainEscape.canceled += instance.OnMainEscape;
@@ -450,9 +505,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @InteractExecute.started -= instance.OnInteractExecute;
-            @InteractExecute.performed -= instance.OnInteractExecute;
-            @InteractExecute.canceled -= instance.OnInteractExecute;
+            InteractAction.started -= instance.OnInteractExecute;
+            InteractAction.performed -= instance.OnInteractExecute;
+            InteractAction.canceled -= instance.OnInteractExecute;
             @MainEscape.started -= instance.OnMainEscape;
             @MainEscape.performed -= instance.OnMainEscape;
             @MainEscape.canceled -= instance.OnMainEscape;
@@ -511,7 +566,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "InteractExecute" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "InteractAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />

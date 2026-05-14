@@ -7,6 +7,12 @@ public class GameMusic : MonoBehaviour
     private void Start()
     {
         source = GetComponent<AudioSource>();
+        GameHandler.Instance.OnStateChange += () =>
+        {
+            if (GameHandler.Instance.CurrentState is GameHandler.GameState.Countdown) 
+                source.Play();
+        };
+
         source.volume = UserSetting.Instance.MusicVolume;
 
         UserSetting.Instance.OnAudioUpdate += () => { 

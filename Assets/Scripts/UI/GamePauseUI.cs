@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
 
 public class GamePauseUI : MonoBehaviour
 {
@@ -22,8 +21,13 @@ public class GamePauseUI : MonoBehaviour
         {
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            AudioListener.pause = false;
         });
-        MainMenuBtn.onClick.AddListener(() => MainSceneLoader.LoadScene(MainSceneLoader.Scene.MainMenu));
+        MainMenuBtn.onClick.AddListener(() =>
+        {
+            MainSceneLoader.LoadScene(MainSceneLoader.Scene.MainMenu);
+            AudioListener.pause = false;
+        });
         OptionsBtn.onClick.AddListener(() => {
             OptionsPanel.SetPanel();
 
@@ -34,12 +38,10 @@ public class GamePauseUI : MonoBehaviour
     }
 
 
-    private void Start()
-    {
+    private void Start() =>
         PausePanel.SetActive(false);
-        // This is new for me. I didn’t know before that we could pass the
-        // (s, e) event parameter using a lambda expression;
-    }
+
+
     private void SetPanel() { if (PausePanel != null) PausePanel.SetActive(true);  }
     private void HidePanel() { if (PausePanel != null) PausePanel.SetActive(false); }
 

@@ -46,6 +46,7 @@ public class GameHandler : MonoBehaviour
                 {
                     PlayTime = MaxPlayTime;
                     CurrentState = GameState.Playing;
+                    OnStateChange?.Invoke();
                 }
                 break;
             case GameState.Playing:

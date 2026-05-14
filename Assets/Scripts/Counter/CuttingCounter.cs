@@ -16,12 +16,29 @@ public class CuttingCounter : BaseCounter
     }
     private int SliceCount;
 
+    //public override void TryDropItem(GameObject CurrentItem)
+    //{
+    //    foreach (ValidItem item in ValidItems)
+    //    {
+
+    //        if (CurrentItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
+    //        {
+    //            Progress_BarUI.SetProgressbar(true);
+    //            CurrentCounterItem = CurrentItem;
+    //            Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
+    //            CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
+    //            CounterHaveItem = true;
+    //        }
+    //    }
+
+    //}
+
     public override void TryDropItem(GameObject CurrentItem)
     {
         foreach (ValidItem item in ValidItems)
         {
 
-            if (CurrentItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
+            if (CurrentItem.TryGetComponent(out  ObjectHandler object_handler) && object_handler._Object == item.RawItem)
             {
                 Progress_BarUI.SetProgressbar(true);
                 CurrentCounterItem = CurrentItem;

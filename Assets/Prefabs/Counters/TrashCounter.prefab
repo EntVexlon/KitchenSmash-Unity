@@ -295,4 +295,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3add487ced8e7f24c9d6ec20f08b9ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectHandler
-  SoundEffectGroup: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}
+  SoundLib: {fileID: 11400000, guid: 39bdc1e955ae02947a4df1d414077d7f, type: 2}

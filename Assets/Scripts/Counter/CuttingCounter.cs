@@ -14,24 +14,7 @@ public class CuttingCounter : BaseCounter
         public _IngredientItem RawItem;
         public _CutItem SlicedItem;
     }
-    private int SliceCount;
 
-    //public override void TryDropItem(GameObject CurrentItem)
-    //{
-    //    foreach (ValidItem item in ValidItems)
-    //    {
-
-    //        if (CurrentItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
-    //        {
-    //            Progress_BarUI.SetProgressbar(true);
-    //            CurrentCounterItem = CurrentItem;
-    //            Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
-    //            CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
-    //            CounterHaveItem = true;
-    //        }
-    //    }
-
-    //}
 
     public override void TryDropItem(GameObject CurrentItem)
     {
@@ -42,7 +25,7 @@ public class CuttingCounter : BaseCounter
             {
                 Progress_BarUI.SetProgressbar(true);
                 CurrentCounterItem = CurrentItem;
-                Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
+                Progress_BarUI.FillBar(object_handler.Progress, item.RequiredSliceCount);
                 CurrentCounterItem.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
                 CounterHaveItem = true;
             }
@@ -50,10 +33,10 @@ public class CuttingCounter : BaseCounter
 
     }
 
+
     public override GameObject TryPickUpItem(Player ph)
     {
         if (!CounterHaveItem) return null;
-        SliceCount = 0;
         Progress_BarUI.SetProgressbar(false);
         CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(ph.ItemHold, ph.ItemHold.position);
         CounterHaveItem = false;
@@ -62,27 +45,28 @@ public class CuttingCounter : BaseCounter
         return @object;
     }
 
+
     public override void InteractAction()
     {
         if (!CounterHaveItem) return;
         foreach (ValidItem item in ValidItems)
         {
-            if (CurrentCounterItem.GetComponent<ObjectHandler>()._Object == item.RawItem)
+            if (CurrentCounterItem.TryGetComponent(out ObjectHandler object_handler) && object_handler._Object == item.RawItem)
             {
-                SliceCount++;
+                object_handler.Progress++;
                 GetComponent<SoundHandler>().PlayAudioClip(transform, SoundId.Item_Cut);
                 Progress_BarUI.SetProgressbar(true);
-                Progress_BarUI.FillBar(SliceCount, item.RequiredSliceCount);
+                Progress_BarUI.FillBar(object_handler.Progress, item.RequiredSliceCount);
                 OnItemCut?.Invoke(this, EventArgs.Empty);
-                if (SliceCount == item.RequiredSliceCount)
+                if (object_handler.Progress == item.RequiredSliceCount)
                 {
                     Destroy(CurrentCounterItem);
                     CurrentCounterItem = Instantiate(item.SlicedItem.OutputObject);
                     CurrentCounterItem?.GetComponent<ObjectHandler>().SetParent(CounterTop, CounterTop.position);
                     CounterHaveItem = true;
-                    SliceCount = 0;
                 }
-            }}
+            }
+        }
     }
 
     public override bool TryAddItem(GameObject Item, Object_Plate PlateObject)

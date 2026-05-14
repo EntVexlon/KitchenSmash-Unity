@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //Its a Audio handler For Stove Couner
-public class SizzleAudioEmitter : MonoBehaviour
+public class SizzleAudio : MonoBehaviour
 {
     [SerializeField] private _SoundLibrary SoundLib;
     [SerializeField] private AudioSource source;

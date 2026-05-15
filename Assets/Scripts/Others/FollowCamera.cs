@@ -4,10 +4,10 @@ public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private Transform Player;
 
-    [SerializeField] private float MinZ = -10f;
+    [SerializeField] private float MinZ = -0.7f;
     [SerializeField] private float MaxZ = 20f;
 
-    [SerializeField] private float MinX = -10f;
+    [SerializeField] private float MinX = -0.5f;
     [SerializeField] private float MaxX = 10f;
 
     [SerializeField] private float SmoothSpeed = 5f;
@@ -21,6 +21,7 @@ public class FollowCamera : MonoBehaviour
 
     private void LateUpdate()
     {
+        if(this is null) return;
         float targetZ = Mathf.Clamp(Player.position.z, MinZ, MaxZ);
         float targetX = Mathf.Clamp(Player.position.x, MinX, MaxX);
 

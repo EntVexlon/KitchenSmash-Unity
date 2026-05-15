@@ -111,7 +111,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InteractExecute"",
+                    ""name"": ""InteractAction"",
                     ""type"": ""Button"",
                     ""id"": ""6b7afb5c-7cf3-4598-95c1-01cf8e154a28"",
                     ""expectedControlType"": """",
@@ -291,7 +291,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""InteractExecute"",
+                    ""action"": ""InteractAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -302,7 +302,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""InteractExecute"",
+                    ""action"": ""InteractAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -337,7 +337,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_InteractExecute = m_Player.FindAction("InteractExecute", throwIfNotFound: true);
+        m_Player_InteractAction = m_Player.FindAction("InteractAction", throwIfNotFound: true);
         m_Player_MainEscape = m_Player.FindAction("MainEscape", throwIfNotFound: true);
     }
 
@@ -421,7 +421,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_InteractExecute;
+    private readonly InputAction m_Player_InteractAction;
     private readonly InputAction m_Player_MainEscape;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
@@ -445,7 +445,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <summary>
         /// Provides access to the underlying input action "Player/InteractAction".
         /// </summary>
-        public InputAction InteractAction => m_Wrapper.m_Player_InteractExecute;
+        public InputAction @InteractAction => m_Wrapper.m_Player_InteractAction;
         /// <summary>
         /// Provides access to the underlying input action "Player/MainEscape".
         /// </summary>
@@ -482,9 +482,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            InteractAction.started += instance.OnInteractExecute;
-            InteractAction.performed += instance.OnInteractExecute;
-            InteractAction.canceled += instance.OnInteractExecute;
+            @InteractAction.started += instance.OnInteractAction;
+            @InteractAction.performed += instance.OnInteractAction;
+            @InteractAction.canceled += instance.OnInteractAction;
             @MainEscape.started += instance.OnMainEscape;
             @MainEscape.performed += instance.OnMainEscape;
             @MainEscape.canceled += instance.OnMainEscape;
@@ -505,9 +505,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            InteractAction.started -= instance.OnInteractExecute;
-            InteractAction.performed -= instance.OnInteractExecute;
-            InteractAction.canceled -= instance.OnInteractExecute;
+            @InteractAction.started -= instance.OnInteractAction;
+            @InteractAction.performed -= instance.OnInteractAction;
+            @InteractAction.canceled -= instance.OnInteractAction;
             @MainEscape.started -= instance.OnMainEscape;
             @MainEscape.performed -= instance.OnMainEscape;
             @MainEscape.canceled -= instance.OnMainEscape;
@@ -571,7 +571,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteractExecute(InputAction.CallbackContext context);
+        void OnInteractAction(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "MainEscape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 3812876574508226176}
   - component: {fileID: -9121352281673763071}
   - component: {fileID: 53757075413435502}
+  - component: {fileID: 1819740972325464660}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObject
   _Object: {fileID: 11400000, guid: 8bd7c78ede2826643a3d05d27ac20c4b, type: 2}
+  Progress: 0
 --- !u!114 &53757075413435502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +231,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db21b99ce777c2340ba6d4712ba12238, type: 2}
   - {fileID: 11400000, guid: 81930fba9652fdd449831abc52eed83a, type: 2}
   - {fileID: 11400000, guid: ac48408756432704d9a0145305c6e7c2, type: 2}
+--- !u!65 &1819740972325464660
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3812876574508226177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.84335434, y: 0.03117451, z: 0.8740336}
+  m_Center: {x: -0.020238206, y: 0.06810139, z: 0.0005765557}
 --- !u!1 &5970647301796179916
 GameObject:
   m_ObjectHideFlags: 0

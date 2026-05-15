@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 public class DeliveryCounter : BaseCounter
 {
     public static DeliveryCounter Instance; 
@@ -44,7 +43,7 @@ public class DeliveryCounter : BaseCounter
                 current_order = new_order,
             });
 
-            NextOrderTime = NextOrderCoolDown + Time.time;
+            NextOrderTime = NextOrderCoolDown + Time.time + UnityEngine.Random.Range(0,10);
             QueueOrder.Add(new_order);
         }
     }

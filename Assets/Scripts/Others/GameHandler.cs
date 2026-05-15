@@ -8,7 +8,7 @@ public class GameHandler : MonoBehaviour
 
     [NonSerialized] public float CountdownTime = 3f;
     [NonSerialized] public float PlayTime;
-    [NonSerialized] public float MaxPlayTime = 300f;
+    [NonSerialized] public float MaxPlayTime = 80f;
 
     public Action OnStateChange;
     [HideInInspector] public enum GameState

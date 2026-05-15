@@ -140,6 +140,7 @@ public class StoveCounter : BaseCounter
         {
             CurrentCookState = CookState.Burned;
             OnCookStateChange?.Invoke();
+            EffectHandler.SetVisual(false);
 
 
         }

@@ -210,9 +210,9 @@ MonoBehaviour:
   EngineVolume: 0.2
   HornClips:
   - {fileID: 8300000, guid: e2e789e96b1200641a9e523b7e2dc108, type: 3}
-  HornChance: 0.003
+  HornChance: 0.001
   BumpHonkChance: 0.45
-  HornVolume: 0.2
+  HornVolume: 0.1
   MinDist: 10
   MaxDist: 70
   DopplerLevel: 0.8

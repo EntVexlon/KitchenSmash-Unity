@@ -13,6 +13,10 @@ public class CameraMode : MonoBehaviour
                 target_pos.x = transform.position.x; 
                 transform.LookAt(target_pos);
                 break;
+            case CameraModeType.LookAtCameraInverted:
+                transform.rotation = Camera.main.transform.rotation;
+                break;
+
             case CameraModeType.LookForward:  
                 //I will add Later maybe
                 break;
@@ -23,5 +27,6 @@ public class CameraMode : MonoBehaviour
 public enum CameraModeType
 {
     LookAtCamera,
+    LookAtCameraInverted,
     LookForward
 }

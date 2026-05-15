@@ -10,6 +10,8 @@ public class DeliveryCounter : BaseCounter
     [HideInInspector] public int TotalCompletedTasks;
     public EventHandler<OrderData> OnOrder;
     public EventHandler<OrderData> OnTryConfirmOrder;
+    public Action OnCorrectOrder;
+    public Action OnWrongOrder;
     private List<_Recipe> QueueOrder;
     private int MaxOrder = 4;
     private float NextOrderTime = 2;
@@ -97,6 +99,7 @@ public class DeliveryCounter : BaseCounter
                 TotalCompletedTasks++;
                 Debug.Log("Correct Order!");
                 GetComponent<SoundHandler>().PlayAudioClip(transform, SoundId.CorrectDelivery);
+                OnCorrectOrder?.Invoke();
                 return;
             }
         }
@@ -104,6 +107,7 @@ public class DeliveryCounter : BaseCounter
         //If the Order Is Not Correct Then
         GetComponent<SoundHandler>().PlayAudioClip(transform, SoundId.WrongDelivery);
         Debug.Log("Wrong Order!");
+        OnWrongOrder?.Invoke();
     }
 
 

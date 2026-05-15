@@ -9,7 +9,6 @@ public class CountDownUI : MonoBehaviour
     private int prev_num;
     private const string NumPopUp = "NumPopUp";
 
-    private void Awake() => GetComponent<SoundHandler>().ResetLockedClip(SoundId.Warning);
 
     private void Start() => anim = GetComponent<Animator>();
 
@@ -26,7 +25,7 @@ public class CountDownUI : MonoBehaviour
         if (current_num == prev_num) return;
         prev_num = current_num;
         TextUI.text = current_num.ToString();
-        GetComponent<SoundHandler>().PlayAudioClip(Camera.main.transform ,SoundId.Warning, RandomClip : true);
+        GetComponent<SoundHandler>().PlayAudioClip(Camera.main.transform ,SoundId.CountDown, OneClip : true);
         anim.SetTrigger(NumPopUp);
     }
 }

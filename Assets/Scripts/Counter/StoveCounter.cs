@@ -9,9 +9,11 @@ public class StoveCounter : BaseCounter
     [SerializeField] private ProgressBarUI Progress_BarUI;
     [SerializeField] private ParticleEffectHandler EffectHandler;
     [SerializeField] private List<ValidItem> ValidItems;
+    public Action OnCookStateChange;
+    private CookState CurrentCookState;
 
-    [Serializable]
-    public struct ValidItem
+
+    [Serializable] public struct ValidItem
     {
         public _IngredientItem RawItem;
         public _CookItem CookedItem;
@@ -20,9 +22,17 @@ public class StoveCounter : BaseCounter
         public float BurnTime;
     }
 
-    private float TotalCookDuration = 0f;
+    [NonSerialized] public float TotalCookDuration = 0f;
     private bool IsCooking = false;
 
+
+    public enum CookState
+    {
+        Idle,
+        Cooking,
+        Burning,
+        Burned
+    }
     private void Update() =>
         GetComponent<SizzleAudio>().PlayAudioClip(transform, IsCooking);
 
@@ -42,6 +52,8 @@ public class StoveCounter : BaseCounter
             Progress_BarUI.FillBar(object_handler.Progress, TotalCookDuration);
 
             object_handler.SetParent(CounterTop, CounterTop.position);
+            CurrentCookState = CookState.Idle;
+            OnCookStateChange?.Invoke();
             CounterHaveItem = true;
             return;
         }
@@ -63,6 +75,8 @@ public class StoveCounter : BaseCounter
 
         GameObject @object = CurrentCounterItem;
         CurrentCounterItem = null;
+        CurrentCookState = CookState.Idle;
+        OnCookStateChange?.Invoke();
         return @object;
     }
 
@@ -83,31 +97,28 @@ public class StoveCounter : BaseCounter
 
     private IEnumerator CookValidation(ValidItem item)
     {
+        if (!CounterHaveItem) yield break;
+
         float initial_progress = CurrentCounterItem.GetComponent<ObjectHandler>().Progress;
 
         if (initial_progress < item.CookTime)
         {
-            yield return CookPhase(
-                phase_end: item.CookTime,
-                output_object: item.CookedItem.OutputObject,
-                item: item
-            );
+            CurrentCookState = CookState.Cooking;
+            OnCookStateChange?.Invoke();
+            yield return CookPhase(item.CookTime, item.CookedItem.OutputObject, item);
         }
-        //else
-        //    ReplaceItem(item.CookedItem.OutputObject, item.CookTime);
 
         if (!CounterHaveItem) yield break;
 
-        float burn_state = CurrentCounterItem.GetComponent<ObjectHandler>().Progress;
-        if (burn_state < TotalCookDuration)
+        float current_progress = CurrentCounterItem.GetComponent<ObjectHandler>().Progress;
+        if (current_progress < TotalCookDuration)
         {
-            yield return CookPhase(
-                phase_end: TotalCookDuration,
-                output_object: item.BurnerdItem.OutputObject,
-                item: item
-            );
+            CurrentCookState = CookState.Burning;
+            OnCookStateChange?.Invoke();
+            yield return CookPhase(TotalCookDuration, item.BurnerdItem.OutputObject, item);
         }
     }
+
 
     private IEnumerator CookPhase(float phase_end, GameObject output_object, ValidItem item)
     {
@@ -116,7 +127,7 @@ public class StoveCounter : BaseCounter
 
         CurrentCounterItem.TryGetComponent(out ObjectHandler object_handler);
 
-        while (object_handler.Progress < phase_end)
+        while (object_handler.Progress < phase_end) 
         {
             object_handler.Progress += Time.deltaTime;
             object_handler.Progress = Mathf.Min(object_handler.Progress, phase_end);
@@ -124,6 +135,14 @@ public class StoveCounter : BaseCounter
             yield return null;
         }
 
+        bool is_burned = phase_end >= TotalCookDuration;
+        if (is_burned)
+        {
+            CurrentCookState = CookState.Burned;
+            OnCookStateChange?.Invoke();
+
+
+        }
         ReplaceItem(output_object, object_handler.Progress);
         IsCooking = false;
     }
@@ -157,6 +176,11 @@ public class StoveCounter : BaseCounter
             .SetParent(plateObject.PlateTop, plateObject.PlateTop.position);
 
         CurrentCounterItem = plate;
+        CurrentCookState = CookState.Idle;
+        OnCookStateChange?.Invoke();
         return true;
     }
+
+
+    public CookState GetCookState() => CurrentCookState;
 }

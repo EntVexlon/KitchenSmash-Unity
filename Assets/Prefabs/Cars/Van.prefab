@@ -276,10 +276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleAudioHandler
   EngineClip: {fileID: 8300000, guid: 5adc45d271bd16249a01525422d5aa2e, type: 3}
-  EngineVolume: 0.3
+  EngineVolume: 0.2
   HornClips:
   - {fileID: 8300000, guid: 0f781c5a130ed8046aec2f5529d07403, type: 3}
-  HornChance: 0.005
+  HornChance: 0.003
   BumpHonkChance: 0.45
   HornVolume: 0.2
   MinDist: 10

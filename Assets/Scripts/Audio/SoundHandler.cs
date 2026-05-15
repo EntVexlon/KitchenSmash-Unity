@@ -7,7 +7,7 @@ public class SoundHandler : MonoBehaviour
 
     private Dictionary<SoundId, int> locked_Index = new Dictionary<SoundId, int>();
 
-    public void PlayAudioClip(Transform transform, SoundId sound_id, float volume = 1f, bool RandomClip = false)
+    public void PlayAudioClip(Transform transform, SoundId sound_id, float volume = 1f, bool OneClip = false)
     {
         volume = UserSetting.Instance.SoundVolume;
         foreach (var list in SoundLib.SoundList)
@@ -15,7 +15,7 @@ public class SoundHandler : MonoBehaviour
             if (list.Id != sound_id) continue;
 
             int index;
-            if (RandomClip)
+            if (OneClip)
             {
                 if (!locked_Index.ContainsKey(sound_id))
                     locked_Index[sound_id] = Random.Range(0, list.Clip.Length);

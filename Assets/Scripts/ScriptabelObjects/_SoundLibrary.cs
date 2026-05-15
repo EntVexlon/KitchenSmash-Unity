@@ -17,6 +17,7 @@ public class _SoundLibrary : ScriptableObject
 [HideInInspector]
 public enum SoundId
 {
+    CountDown,
     Footstep,
     PickUp_Item,
     Drop_Item,

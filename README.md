@@ -1,3 +1,6 @@
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/4324b259-a631-492c-a65f-d3d336ee182d" />
+
 # Kitchen Smash
 Built while following Code Monkey's Overcooked-style Unity tutorial. At some point I stopped just following along and started making it my own adding systems, refactoring things I wasn't happy with, and figuring out why stuff actually works rather than just copying it.
 

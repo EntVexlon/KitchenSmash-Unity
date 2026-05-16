@@ -9,6 +9,7 @@ public class TaskUI : MonoBehaviour
 {
     [SerializeField] private Transform TaskTemplate;
     [SerializeField] private Transform ContainerTransform;
+    [SerializeField] private TextMeshProUGUI MainTitle;
 
     [SerializeField] private float card_space = 200f;   
     [SerializeField] private float move_speed = 10f;  
@@ -17,10 +18,12 @@ public class TaskUI : MonoBehaviour
 
     private void Start()
     {
+
         DeliveryCounter.Instance.OnOrder += SetTask;
         DeliveryCounter.Instance.OnTryConfirmOrder += RemoveTask;
 
         TaskTemplate.gameObject.SetActive(false);
+        MainTitle.gameObject.SetActive(false);
         TaskList = new List<(_Recipe, Transform)>();
     }
 
@@ -28,6 +31,7 @@ public class TaskUI : MonoBehaviour
     {
         for (int i = 0; i < TaskList.Count; i++)
         {
+            if(TaskList.Count >= 0) MainTitle.gameObject.SetActive(true);
             RectTransform rt = TaskList[i].obj as RectTransform;
 
             Vector2 target_pos = new Vector2(0, -i * card_space);

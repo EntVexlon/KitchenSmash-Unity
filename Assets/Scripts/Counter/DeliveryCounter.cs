@@ -46,6 +46,7 @@ public class DeliveryCounter : BaseCounter
             NextOrderTime = NextOrderCoolDown + Time.time + UnityEngine.Random.Range(0,10);
             QueueOrder.Add(new_order);
         }
+
     }
 
 
@@ -96,22 +97,20 @@ public class DeliveryCounter : BaseCounter
                 });
                 QueueOrder.RemoveAt(i);
                 TotalCompletedTasks++;
-                Debug.Log("Correct Order!");
                 GetComponent<SoundHandler>().PlayAudioClip(transform, SoundId.CorrectDelivery);
                 OnCorrectOrder?.Invoke();
+                NextOrderTime = NextOrderCoolDown + Time.time + UnityEngine.Random.Range(0, 10);
                 return;
             }
         }
 
         //If the Order Is Not Correct Then
         GetComponent<SoundHandler>().PlayAudioClip(transform, SoundId.WrongDelivery);
-        Debug.Log("Wrong Order!");
         OnWrongOrder?.Invoke();
     }
 
 
 
-    /* Audio Handling */
 
 
 }

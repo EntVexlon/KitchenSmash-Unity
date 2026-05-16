@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 6246431847472875852}
   - component: {fileID: 355654882276180311}
   - component: {fileID: 5310697745046231357}
+  - component: {fileID: 3792069972602549935}
   m_Layer: 5
   m_Name: ProgressBar
   m_TagString: Untagged
@@ -500,6 +501,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3792069972602549935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4572377286273064673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903a3614aec824b478d1ed1e7b8d14df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMode
+  Mode: 0
 --- !u!1 &5333648186768674077
 GameObject:
   m_ObjectHideFlags: 0

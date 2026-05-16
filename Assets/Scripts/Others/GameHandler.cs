@@ -38,7 +38,6 @@ public class GameHandler : MonoBehaviour
         switch (CurrentState)
         {
             case GameState.Standby:
-               
                 break;
             case GameState.Countdown:
                 CountdownTime -= Time.deltaTime;

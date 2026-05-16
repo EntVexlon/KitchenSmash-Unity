@@ -34,6 +34,13 @@ Improved visuals with post processing, stylized skybox, and street environment o
 
 ---
 
+
+
+## Download
+ 
+[![Download for Windows](https://img.shields.io/badge/Download-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/EntVexlon/Project-KitchenSmash/releases)
+
+---
 ## Credit
 
 Built following the tutorial by [Code Monkey](https://www.youtube.com/@TheCodeMonkeyOfficial). Genuinely one of the best Unity channels out there.

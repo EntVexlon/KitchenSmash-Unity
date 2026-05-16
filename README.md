@@ -1,8 +1,7 @@
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/f898522b-9825-4730-bae3-d0377eaf75c4" />
-
 # Kitchen Smash
-
 Built while following Code Monkey's Overcooked-style Unity tutorial. At some point I stopped just following along and started making it my own adding systems, refactoring things I wasn't happy with, and figuring out why stuff actually works rather than just copying it.
+
+This project could realistically be finished in 1-2 weeks, but I took longer because I didn't follow the tutorial's code structure I wrote and structured everything myself as a personal challenge. No regrets, learned way more that way.
 
 ---
 
@@ -19,7 +18,6 @@ Improved UI with animated order cards, stove warning states, and a progress bar 
 Improved visuals with post processing, stylized skybox, and street environment outside the kitchen
 
 <img width="1280" height="719" alt="photo_2026-05-16_14-16-33" src="https://github.com/user-attachments/assets/ba4032f7-bb49-4fa2-8994-d884eb66c649" />
-
 <img width="1280" height="719" alt="photo_2026-05-16_14-16-29" src="https://github.com/user-attachments/assets/cd46f925-4114-4178-9e34-9dfffae163ee" />
 
 ---
@@ -33,7 +31,6 @@ Improved visuals with post processing, stylized skybox, and street environment o
 **Interfaces and Enums** — `ICounter` as a shared contract across `ClearCounter`, `CuttingCounter`, `StoveCounter`, `PlateCounter` and so on. Each implements the same methods differently. Enums for type safe state like `CookState` and `GameState` instead of magic strings or booleans.
 
 **EventArgs and C# Events** — `EventHandler<OrderData>` for passing recipe data between the delivery counter and the UI. `Action` for lighter one way signals like cook state changes. Understanding the difference between `Action`, `EventHandler`, and when to use each.
-
 
 ---
 
